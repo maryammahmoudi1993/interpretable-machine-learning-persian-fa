@@ -343,7 +343,7 @@ function sidebarToggle() {
         html.removeClass("sidebar-visible").addClass("sidebar-hidden");
         store.set('mdbook-sidebar', 'hidden');
     } else {
-        if($("#sidebar").position().left === 0 || $("#sidebar").position().right === 0){
+        if($("#sidebar").position().left === 0){
             html.addClass("sidebar-hidden");
             store.set('mdbook-sidebar', 'hidden');
         } else {
