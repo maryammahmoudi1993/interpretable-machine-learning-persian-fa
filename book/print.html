@@ -1,611 +1,602 @@
 <!DOCTYPE HTML>
-<html lang="en" dir="rtl">
+<html lang="fa" class="light sidebar-visible" dir="rtl">
     <head>
+        <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>یادگیری ماشین قابل تفسیر</title>
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
 
-        <base href="">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
-        <link rel="stylesheet" href="book.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
-        <link rel="shortcut icon" href="favicon.png">
-
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        
 
-        
 
-        <!-- Fetch Clipboard.js from CDN but have a local fallback -->
-        <script src="https://cdn.jsdelivr.net/clipboard.js/1.6.1/clipboard.min.js"></script>
+        <!-- Provide site root and default themes to javascript -->
         <script>
-            if (typeof Clipboard == 'undefined') {
-                document.write(unescape("%3Cscript src='clipboard.min.js'%3E%3C/script%3E"));
-            }
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-25b7cd26.js";
         </script>
-
-        <!-- Fetch JQuery from CDN but have a local fallback -->
-        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-        <script>
-            if (typeof jQuery == 'undefined') {
-                document.write(unescape("%3Cscript src='jquery.js'%3E%3C/script%3E"));
-            }
-        </script>
-
-        <!-- Fetch store.js from local - TODO add CDN when 2.x.x is available on cdnjs -->
-        <script src="store.js"></script>
-
+        <!-- Start loading toc.js asap -->
+        <script src="toc-2f8e2b6a.js"></script>
     </head>
-    <body class="light">
-        <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
-            var theme = store.get('mdbook-theme');
-            if (theme === null || theme === undefined) { theme = 'light'; }
-            $('body').removeClass().addClass(theme);
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
         </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
-            var sidebar = store.get('mdbook-sidebar');
-            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
-            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
         </script>
 
-        <div id="sidebar" class="sidebar">
-            <ul class="chapter">[[object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], ]</ul>
-        </div>
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
-            <div class="page" tabindex="-1">
-                
-                <div id="menu-bar" class="menu-bar">
-                    <div class="right-buttons">
-                        <i id="sidebar-toggle" class="fa fa-bars" title="تغییر نمایش فهرست"></i>
-                        <i id="theme-toggle" class="fa fa-paint-brush" title="تغییر پوسته"></i>
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
                     </div>
 
                     <h1 class="menu-title">یادگیری ماشین قابل تفسیر</h1>
 
-                    <div class="left-buttons">
-                        <a href="print.html">
-                            <i id="print-button" class="fa fa-print" title="چاپ کتاب"></i>
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
                         </a>
-                        
+                        <a href="https://github.com/maryam-mahmoudi/interpretable-machine-learning-persian" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
                     </div>
                 </div>
 
-                <div id="content" class="content">
-                    <a class="header" href="print.html#یادگیری-ماشین-قابل-تفسیر" id="یادگیری-ماشین-قابل-تفسیر"><h1>یادگیری ماشین قابل تفسیر</h1></a>
-<a class="header" href="print.html#راهنمایی-برای-قابل-توضیح-کردن-مدلهای-جعبه-سیاه" id="راهنمایی-برای-قابل-توضیح-کردن-مدلهای-جعبه-سیاه"><h2>راهنمایی برای قابل توضیح کردن مدل‌های جعبه سیاه</h2></a>
-<hr />
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="یادگیری-ماشین-قابل-تفسیر"><a class="header" href="#یادگیری-ماشین-قابل-تفسیر">یادگیری ماشین قابل تفسیر</a></h1>
+<h2 id="راهنمایی-برای-قابل-توضیح-کردن-مدلهای-جعبه-سیاه"><a class="header" href="#راهنمایی-برای-قابل-توضیح-کردن-مدلهای-جعبه-سیاه">راهنمایی برای قابل توضیح کردن مدل‌های جعبه سیاه</a></h2>
+<hr>
 <div dir="rtl" align="center">
 <p><strong>نویسنده اصلی</strong></p>
-<a class="header" href="print.html#christoph-molnar" id="christoph-molnar"><h1>Christoph Molnar</h1></a>
-<hr />
+<h1 id="christoph-molnar"><a class="header" href="#christoph-molnar">Christoph Molnar</a></h1>
+<hr>
 <p><strong>ترجمه فارسی</strong></p>
-<a class="header" href="print.html#مریم-محمودی" id="مریم-محمودی"><h1>مریم محمودی</h1></a>
-<hr />
+<h1 id="مریم-محمودی"><a class="header" href="#مریم-محمودی">مریم محمودی</a></h1>
+<hr>
 <p>ویرایش سوم</p>
-<hr />
-<p><em>کتاب اصلی به صورت رایگان در دسترس است:</em><br />
-<a href="https://christophm.github.io/interpretable-ml-book/">https://christophm.github.io/interpretable-ml-book/</a></p>
-<hr />
+<hr>
+<p><em>کتاب اصلی به صورت رایگان در دسترس است:</em><br><a href="https://christophm.github.io/interpretable-ml-book/">https://christophm.github.io/interpretable-ml-book/</a></p>
+<hr>
 <p>مجوز: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0</a></p>
-<p>تمام حقوق معنوی اثر متعلق به نویسنده اصلی <strong>Christoph Molnar</strong> است.<br />
-این ترجمه توسط <strong>مریم محمودی</strong> با هدف دسترسی آزاد جامعه فارسی‌زبان به منابع یادگیری ماشین تهیه شده است.</p>
+<p>تمام حقوق معنوی اثر متعلق به نویسنده اصلی <strong>Christoph Molnar</strong> است.<br>این ترجمه توسط <strong>مریم محمودی</strong> با هدف دسترسی آزاد جامعه فارسی‌زبان به منابع یادگیری ماشین تهیه شده است.</p>
 </div>
-<hr />
-<a class="header" href="print.html#فهرست-مطالب" id="فهرست-مطالب"><h2>فهرست مطالب</h2></a>
-<a class="header" href="print.html#مقدمه-و-مبانی" id="مقدمه-و-مبانی"><h3>مقدمه و مبانی</h3></a>
+
+<hr>
+<h2 id="فهرست-مطالب"><a class="header" href="#فهرست-مطالب">فهرست مطالب</a></h2>
+<h3 id="مقدمه-و-مبانی"><a class="header" href="#مقدمه-و-مبانی">مقدمه و مبانی</a></h3>
 <ul>
-<li><a href="./01-intro.md">فصل ۱ — مقدمه</a></li>
-<li><a href="./02-interpretability.md">فصل ۲ — تفسیرپذیری</a></li>
-<li><a href="./03-goals.md">فصل ۳ — اهداف تفسیرپذیری</a></li>
-<li><a href="./04-overview.md">فصل ۴ — مروری بر روش‌ها</a></li>
-<li><a href="./05-data.md">فصل ۵ — داده و مدل‌ها</a></li>
+<li><a href="#فصل-۱-مقدمه">فصل ۱ — مقدمه</a></li>
+<li><a href="#فصل-۲-تفسیرپذیری">فصل ۲ — تفسیرپذیری</a></li>
+<li><a href="#فصل-۳-اهداف-تفسیرپذیری">فصل ۳ — اهداف تفسیرپذیری</a></li>
+<li><a href="#فصل-۴-مروری-بر-روشها">فصل ۴ — مروری بر روش‌ها</a></li>
+<li><a href="#فصل-۵-داده-و-مدلها">فصل ۵ — داده و مدل‌ها</a></li>
 </ul>
-<a class="header" href="print.html#مدلهای-قابل-تفسیر" id="مدلهای-قابل-تفسیر"><h3>مدل‌های قابل تفسیر</h3></a>
+<h3 id="مدلهای-قابل-تفسیر"><a class="header" href="#مدلهای-قابل-تفسیر">مدل‌های قابل تفسیر</a></h3>
 <ul>
-<li><a href="./06-linear-regression.md">فصل ۶ — رگرسیون خطی</a></li>
-<li><a href="./07-logistic-regression.md">فصل ۷ — رگرسیون لجستیک</a></li>
-<li><a href="./08-glm-gam.md">فصل ۸ — GLM، GAM و بیشتر</a></li>
-<li><a href="./09-decision-tree.md">فصل ۹ — درخت تصمیم</a></li>
-<li><a href="./10-decision-rules.md">فصل ۱۰ — قوانین تصمیم</a></li>
-<li><a href="./11-rulefit.md">فصل ۱۱ — RuleFit</a></li>
+<li><a href="#فصل-۶-رگرسیون-خطی">فصل ۶ — رگرسیون خطی</a></li>
+<li><a href="#فصل-۷-رگرسیون-لجستیک">فصل ۷ — رگرسیون لجستیک</a></li>
+<li><a href="#فصل-۸-glm-gam-و-بیشتر">فصل ۸ — GLM، GAM و بیشتر</a></li>
+<li><a href="#فصل-۹-درخت-تصمیم">فصل ۹ — درخت تصمیم</a></li>
+<li><a href="#فصل-۱۰-قوانین-تصمیم">فصل ۱۰ — قوانین تصمیم</a></li>
+<li><a href="#فصل-۱۱-rulefit">فصل ۱۱ — RuleFit</a></li>
 </ul>
-<a class="header" href="print.html#روشهای-محلی-مستقل-از-مدل" id="روشهای-محلی-مستقل-از-مدل"><h3>روش‌های محلی مستقل از مدل</h3></a>
+<h3 id="روشهای-محلی-مستقل-از-مدل"><a class="header" href="#روشهای-محلی-مستقل-از-مدل">روش‌های محلی مستقل از مدل</a></h3>
 <ul>
-<li><a href="./12-ceteris-paribus.md">فصل ۱۲ — نمودارهای Ceteris Paribus</a></li>
-<li><a href="./13-ice.md">فصل ۱۳ — انتظار شرطی فردی (ICE)</a></li>
-<li><a href="./14-lime.md">فصل ۱۴ — LIME</a></li>
-<li><a href="./15-counterfactual.md">فصل ۱۵ — توضیحات خلاف واقع</a></li>
-<li><a href="./16-anchors.md">فصل ۱۶ — قوانین محدوده‌دار (Anchors)</a></li>
-<li><a href="./17-shapley.md">فصل ۱۷ — مقادیر Shapley</a></li>
-<li><a href="./18-shap.md">فصل ۱۸ — SHAP</a></li>
+<li><a href="#فصل-۱۲-نمودارهای-ceteris-paribus">فصل ۱۲ — نمودارهای Ceteris Paribus</a></li>
+<li><a href="#فصل-۱۳-انتظار-شرطی-فردی-ice">فصل ۱۳ — انتظار شرطی فردی (ICE)</a></li>
+<li><a href="#فصل-۱۴-lime">فصل ۱۴ — LIME</a></li>
+<li><a href="#فصل-۱۵-توضیحات-خلاف-واقع">فصل ۱۵ — توضیحات خلاف واقع</a></li>
+<li><a href="#فصل-۱۶-قوانین-محدودهدار-anchors">فصل ۱۶ — قوانین محدوده‌دار (Anchors)</a></li>
+<li><a href="#فصل-۱۷-مقادیر-shapley">فصل ۱۷ — مقادیر Shapley</a></li>
+<li><a href="#فصل-۱۸-shap">فصل ۱۸ — SHAP</a></li>
 </ul>
-<a class="header" href="print.html#روشهای-سراسری-مستقل-از-مدل" id="روشهای-سراسری-مستقل-از-مدل"><h3>روش‌های سراسری مستقل از مدل</h3></a>
+<h3 id="روشهای-سراسری-مستقل-از-مدل"><a class="header" href="#روشهای-سراسری-مستقل-از-مدل">روش‌های سراسری مستقل از مدل</a></h3>
 <ul>
-<li><a href="./19-pdp.md">فصل ۱۹ — نمودار وابستگی جزئی (PDP)</a></li>
-<li><a href="./20-ale.md">فصل ۲۰ — اثرات محلی انباشته (ALE)</a></li>
-<li><a href="./21-interaction.md">فصل ۲۱ — تعامل ویژگی‌ها</a></li>
-<li><a href="./22-decomposition.md">فصل ۲۲ — تجزیه تابعی</a></li>
-<li><a href="./23-feature-importance.md">فصل ۲۳ — اهمیت ویژگی با جایگشت</a></li>
-<li><a href="./24-lofo.md">فصل ۲۴ — اهمیت LOFO</a></li>
-<li><a href="./25-surrogate.md">فصل ۲۵ — مدل‌های جایگزین سراسری</a></li>
-<li><a href="./26-prototypes.md">فصل ۲۶ — نمونه‌های اولیه و انتقادات</a></li>
+<li><a href="#فصل-۱۹-نمودار-وابستگی-جزئی-pdp">فصل ۱۹ — نمودار وابستگی جزئی (PDP)</a></li>
+<li><a href="#فصل-۲۰-اثرات-محلی-انباشته-ale">فصل ۲۰ — اثرات محلی انباشته (ALE)</a></li>
+<li><a href="#فصل-۲۱-تعامل-ویژگیها">فصل ۲۱ — تعامل ویژگی‌ها</a></li>
+<li><a href="#فصل-۲۲-تجزیه-تابعی">فصل ۲۲ — تجزیه تابعی</a></li>
+<li><a href="#فصل-۲۳-اهمیت-ویژگی-با-جایگشت">فصل ۲۳ — اهمیت ویژگی با جایگشت</a></li>
+<li><a href="#فصل-۲۴-اهمیت-lofo">فصل ۲۴ — اهمیت LOFO</a></li>
+<li><a href="#فصل-۲۵-مدلهای-جایگزین-سراسری">فصل ۲۵ — مدل‌های جایگزین سراسری</a></li>
+<li><a href="#فصل-۲۶-نمونههای-اولیه-و-انتقادات">فصل ۲۶ — نمونه‌های اولیه و انتقادات</a></li>
 </ul>
-<a class="header" href="print.html#تفسیر-شبکههای-عصبی" id="تفسیر-شبکههای-عصبی"><h3>تفسیر شبکه‌های عصبی</h3></a>
+<h3 id="تفسیر-شبکههای-عصبی"><a class="header" href="#تفسیر-شبکههای-عصبی">تفسیر شبکه‌های عصبی</a></h3>
 <ul>
-<li><a href="./27-cnn-features.md">فصل ۲۷ — ویژگی‌های آموخته‌شده</a></li>
-<li><a href="./28-saliency-maps.md">فصل ۲۸ — نقشه‌های برجستگی</a></li>
-<li><a href="./29-detecting-concepts.md">فصل ۲۹ — تشخیص مفاهیم</a></li>
-<li><a href="./30-adversarial.md">فصل ۳۰ — مثال‌های خصمانه</a></li>
-<li><a href="./31-influential.md">فصل ۳۱ — نمونه‌های تأثیرگذار</a></li>
+<li><a href="#فصل-۲۷-ویژگیهای-آموختهشده">فصل ۲۷ — ویژگی‌های آموخته‌شده</a></li>
+<li><a href="#فصل-۲۸-نقشههای-برجستگی">فصل ۲۸ — نقشه‌های برجستگی</a></li>
+<li><a href="#فصل-۲۹-تشخیص-مفاهیم">فصل ۲۹ — تشخیص مفاهیم</a></li>
+<li><a href="#فصل-۳۰-مثالهای-خصمانه">فصل ۳۰ — مثال‌های خصمانه</a></li>
+<li><a href="#فصل-۳۱-نمونههای-تأثیرگذار">فصل ۳۱ — نمونه‌های تأثیرگذار</a></li>
 </ul>
-<a class="header" href="print.html#فراتر-از-روشها" id="فراتر-از-روشها"><h3>فراتر از روش‌ها</h3></a>
+<h3 id="فراتر-از-روشها"><a class="header" href="#فراتر-از-روشها">فراتر از روش‌ها</a></h3>
 <ul>
-<li><a href="./32-evaluation.md">فصل ۳۲ — ارزیابی روش‌های تفسیر</a></li>
-<li><a href="./33-storytime.md">فصل ۳۳ — داستان‌ها</a></li>
-<li><a href="./34-future.md">فصل ۳۴ — آینده تفسیرپذیری</a></li>
+<li><a href="#فصل-۳۲-ارزیابی-روشهای-تفسیر">فصل ۳۲ — ارزیابی روش‌های تفسیر</a></li>
+<li><a href="#فصل-۳۳-داستانها">فصل ۳۳ — داستان‌ها</a></li>
+<li><a href="#فصل-۳۴-آینده-تفسیرپذیری">فصل ۳۴ — آینده تفسیرپذیری</a></li>
 </ul>
-<a class="header" href="print.html#پیوستها" id="پیوستها"><h3>پیوست‌ها</h3></a>
+<h3 id="پیوستها"><a class="header" href="#پیوستها">پیوست‌ها</a></h3>
 <ul>
-<li><a href="./appendix-A-ml-terms.md">پیوست الف — اصطلاحات یادگیری ماشین</a></li>
-<li><a href="./appendix-B-math.md">پیوست ب — اصطلاحات ریاضی</a></li>
-<li><a href="./appendix-C-packages.md">پیوست ج — بسته‌های R</a></li>
+<li><a href="#پیوست-الف-اصطلاحات-یادگیری-ماشین">پیوست الف — اصطلاحات یادگیری ماشین</a></li>
+<li><a href="#پیوست-ب-اصطلاحات-ریاضی">پیوست ب — اصطلاحات ریاضی</a></li>
+<li><a href="#پیوست-ج-بستههای-r">پیوست ج — بسته‌های R</a></li>
 </ul>
-<a class="header" href="print.html#درباره-کتاب" id="درباره-کتاب"><h1>درباره کتاب</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="درباره-کتاب"><a class="header" href="#درباره-کتاب">درباره کتاب</a></h1>
 <blockquote>
 <p><strong>عنوان اصلی:</strong> About the Book
 <strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/">https://christophm.github.io/interpretable-ml-book/</a>
 <strong>نویسنده:</strong> Christoph Molnar — کریستوف مولنار
 <strong>مترجم:</strong> مریم محمودی — Maryam Mahmoudi</p>
 </blockquote>
-<hr />
-<a class="header" href="print.html#یادگیری-ماشین-تعبیرپذیر" id="یادگیری-ماشین-تعبیرپذیر"><h2>یادگیری ماشین تعبیرپذیر</h2></a>
-<a class="header" href="print.html#راهنمایی-برای-توضیحپذیر-کردن-مدلهای-جعبهسیاه" id="راهنمایی-برای-توضیحپذیر-کردن-مدلهای-جعبهسیاه"><h3>راهنمایی برای توضیح‌پذیر کردن مدل‌های جعبه‌سیاه</h3></a>
-<hr />
-<a class="header" href="print.html#خلاصه" id="خلاصه"><h2>خلاصه</h2></a>
+<hr>
+<h2 id="یادگیری-ماشین-تعبیرپذیر"><a class="header" href="#یادگیری-ماشین-تعبیرپذیر">یادگیری ماشین تعبیرپذیر</a></h2>
+<h3 id="راهنمایی-برای-توضیحپذیر-کردن-مدلهای-جعبهسیاه"><a class="header" href="#راهنمایی-برای-توضیحپذیر-کردن-مدلهای-جعبهسیاه">راهنمایی برای توضیح‌پذیر کردن مدل‌های جعبه‌سیاه</a></h3>
+<hr>
+<h2 id="خلاصه"><a class="header" href="#خلاصه">خلاصه</a></h2>
 <p>یادگیری ماشین بخشی از محصولات، فرایندها و پژوهش‌های ما شده است. اما رایانه‌ها معمولاً توضیحی درباره پیش‌بینی‌های خود ارائه نمی‌دهند و این موضوع می‌تواند مشکلات متعددی ایجاد کند؛ از مسائل مربوط به اعتماد گرفته تا باگ‌های کشف‌نشده. این کتاب درباره قابل‌تعبیر کردن مدل‌های یادگیری ماشین و تصمیم‌های آن‌هاست.</p>
 <p>پس از بررسی مفاهیم تعبیرپذیری (Interpretability)، با مدل‌های ساده و تعبیرپذیر مانند درخت‌های تصمیم و رگرسیون خطی آشنا خواهید شد. تمرکز اصلی کتاب بر روش‌های مستقل از مدل (Model-Agnostic) برای تفسیر مدل‌های جعبه‌سیاه است. برخی از این روش‌ها، مانند LIME و مقادیر شپلی (Shapley Values)، برای توضیح پیش‌بینی‌های منفرد استفاده می‌شوند؛ در حالی که روش‌هایی مانند اهمیت ویژگی مبتنی بر جایگشت (Permutation Feature Importance) و اثرات محلی تجمع‌یافته (Accumulated Local Effects) برای به‌دست‌آوردن بینش درباره روابط کلی‌تر میان ویژگی‌ها و پیش‌بینی‌ها کاربرد دارند. افزون بر این، کتاب روش‌های اختصاصی شبکه‌های عصبی عمیق را نیز معرفی می‌کند.</p>
 <p>تمام روش‌های تفسیر به‌صورت عمیق توضیح داده شده و به‌شکل انتقادی بررسی می‌شوند. این روش‌ها چگونه کار می‌کنند؟ نقاط قوت و ضعف آن‌ها چیست؟ چگونه باید آن‌ها را تفسیر کرد؟ این کتاب به شما کمک می‌کند تا مناسب‌ترین روش تفسیر را برای کاربرد یادگیری ماشین خود انتخاب و به‌درستی استفاده کنید. مطالعه این کتاب به متخصصان یادگیری ماشین، دانشمندان داده، آمارگران و هر فردی که به تعبیرپذیر کردن مدل‌های یادگیری ماشین علاقه‌مند است توصیه می‌شود.</p>
-<hr />
-<a class="header" href="print.html#چرا-این-کتاب-را-نوشتم" id="چرا-این-کتاب-را-نوشتم"><h2>چرا این کتاب را نوشتم</h2></a>
+<hr>
+<h2 id="چرا-این-کتاب-را-نوشتم"><a class="header" href="#چرا-این-کتاب-را-نوشتم">چرا این کتاب را نوشتم</a></h2>
 <p>این کتاب به‌عنوان یک پروژه جانبی آغاز شد؛ زمانی که به‌عنوان آمارگر در پژوهش‌های بالینی کار می‌کردم. در روزهای آزاد خود، موضوعاتی را که برایم جذاب بودند بررسی می‌کردم و در نهایت یادگیری ماشین تعبیرپذیر توجه مرا به خود جلب کرد. با این انتظار که منابع فراوانی درباره تفسیر مدل‌های یادگیری ماشین وجود داشته باشد، شگفت‌زده شدم وقتی دیدم تنها مجموعه‌ای پراکنده از مقالات پژوهشی و نوشته‌های وبلاگی موجود است و هیچ راهنمای جامع و کاملی وجود ندارد. همین موضوع مرا ترغیب کرد تا منبعی را ایجاد کنم که آرزو داشتم وجود داشته باشد؛ کتابی برای عمیق‌تر کردن درک خودم و به‌اشتراک‌گذاری این بینش‌ها با دیگران.</p>
 <p>امروزه این کتاب به یکی از منابع اصلی برای تفسیر مدل‌های یادگیری ماشین تبدیل شده است. پژوهشگران هزاران بار به این کتاب ارجاع داده‌اند، دانشجویان برایم نوشته‌اند که این کتاب برای پایان‌نامه‌هایشان ضروری بوده است، مدرسان از آن در کلاس‌های خود استفاده می‌کنند و دانشمندان داده در صنعت برای کار روزمره خود به آن تکیه می‌کنند. این کتاب همچنین پایه‌گذار مسیر حرفه‌ای خود من نیز بوده است؛ ابتدا مرا به انجام دکتری در حوزه یادگیری ماشین تعبیرپذیر ترغیب کرد و بعدها انگیزه‌ای شد تا به‌عنوان نویسنده، مدرس و مشاور مستقل فعالیت کنم.</p>
-<hr />
-<a class="header" href="print.html#این-کتاب-برای-چه-کسانی-است" id="این-کتاب-برای-چه-کسانی-است"><h2>این کتاب برای چه کسانی است</h2></a>
+<hr>
+<h2 id="این-کتاب-برای-چه-کسانی-است"><a class="header" href="#این-کتاب-برای-چه-کسانی-است">این کتاب برای چه کسانی است</a></h2>
 <p>این کتاب برای متخصصانی نوشته شده است که به‌دنبال مروری جامع بر تکنیک‌های تعبیرپذیرتر کردن مدل‌های یادگیری ماشین هستند. همچنین برای دانشجویان، مدرسان، پژوهشگران و هر فرد علاقه‌مند به این حوزه ارزشمند است. آشنایی پایه‌ای با یادگیری ماشین و ریاضیات مقدماتی در سطح دانشگاه به درک مباحث نظری کمک می‌کند، اما توضیحات شهودی ابتدای هر فصل به‌گونه‌ای طراحی شده‌اند که حتی بدون دانش ریاضی نیز قابل‌فهم باشند.</p>
-<hr />
-<a class="header" href="print.html#چه-چیزهایی-در-ویرایش-سوم-جدید-است" id="چه-چیزهایی-در-ویرایش-سوم-جدید-است"><h2>چه چیزهایی در ویرایش سوم جدید است؟</h2></a>
+<hr>
+<h2 id="چه-چیزهایی-در-ویرایش-سوم-جدید-است"><a class="header" href="#چه-چیزهایی-در-ویرایش-سوم-جدید-است">چه چیزهایی در ویرایش سوم جدید است؟</a></h2>
 <p>ویرایش سوم هم یک به‌روزرسانی کوچک است و هم یک به‌روزرسانی بزرگ. از این جهت کوچک است که تنها دو فصل جدید درباره روش‌ها، یعنی LOFO و Ceteris Paribus، و دو فصل مقدماتی جدید شامل «مروری بر روش‌ها» و «اهداف تعبیرپذیری» به آن افزوده شده‌اند. بااین‌حال، تغییرات بزرگ‌تری نیز در کتاب اعمال کرده‌ام که ظریف‌تر هستند، اما به باور من کیفیت کتاب را بهبود داده‌اند.</p>
 <p>بخش مقدمه را بازسازمان‌دهی کردم تا هم مختصرتر و هم عمیق‌تر شود. همچنین مثال‌های داده‌ای را غنی‌تر کردم (برای مثال، بررسی هم‌بستگی‌ها و انجام تحلیل‌های دقیق‌تر) و مجموعه‌داده سرطان را با مجموعه‌داده قابل‌فهم‌تر پنگوئن‌های پالمر (Palmer Penguin Dataset) جایگزین کردم. برای کاربردی‌تر شدن کتاب، جعبه‌های نکته و هشدار اضافه کردم تا به خوانندگان کمک کنند مدل‌های یادگیری ماشین را به‌درستی تفسیر کنند.</p>
 <p>یکی دیگر از تغییرات بزرگ در ویرایش سوم، پاک‌سازی مخزن کتاب و رندر کردن آن با Quarto به‌جای bookdown بود. برای شما به‌عنوان خواننده، این تغییر تنها در ظاهر نسخه وب کتاب قابل‌مشاهده است، اما برای من نگهداری کتاب را بسیار آسان‌تر کرده است. همچنین اصلاحات کوچک بسیاری انجام داده‌ام که می‌توانید آن‌ها را در فایل README مخزن کتاب، در بخش «Changelog» مشاهده کنید.</p>
-<hr />
-<a class="header" href="print.html#درباره-نویسنده" id="درباره-نویسنده"><h2>درباره نویسنده</h2></a>
+<hr>
+<h2 id="درباره-نویسنده"><a class="header" href="#درباره-نویسنده">درباره نویسنده</a></h2>
 <p>نام من <strong>کریستوف مولنار</strong> (Christoph Molnar) است. من درباره یادگیری ماشین می‌نویسم و تدریس می‌کنم؛ به‌ویژه موضوعاتی که فراتر از صرفاً عملکرد پیش‌بینی هستند. در رشته آمار تحصیل کرده‌ام، چند سال به‌عنوان دانشمند داده کار کرده‌ام، دکتری خود را در زمینه یادگیری ماشین تعبیرپذیر انجام داده‌ام و اکنون نویسنده هستم و همچنین کارگاه‌های آموزشی و خدمات مشاوره ارائه می‌دهم.</p>
-<hr />
-<a class="header" href="print.html#مجوز" id="مجوز"><h2>مجوز</h2></a>
+<hr>
+<h2 id="مجوز"><a class="header" href="#مجوز">مجوز</a></h2>
 <p>این کتاب تحت مجوز <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> منتشر شده است.</p>
-<a class="header" href="print.html#فصل-۱-مقدمه" id="فصل-۱-مقدمه"><h1>فصل ۱: مقدمه</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۱-مقدمه"><a class="header" href="#فصل-۱-مقدمه">فصل ۱: مقدمه</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> Introduction<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/intro.html">https://christophm.github.io/interpretable-ml-book/intro.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> Introduction<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/intro.html">https://christophm.github.io/interpretable-ml-book/intro.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۲-تفسیرپذیری" id="فصل-۲-تفسیرپذیری"><h1>فصل ۲: تفسیرپذیری</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۲-تفسیرپذیری"><a class="header" href="#فصل-۲-تفسیرپذیری">فصل ۲: تفسیرپذیری</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> Interpretability<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/interpretability.html">https://christophm.github.io/interpretable-ml-book/interpretability.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> Interpretability<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/interpretability.html">https://christophm.github.io/interpretable-ml-book/interpretability.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۳-اهداف-تفسیرپذیری" id="فصل-۳-اهداف-تفسیرپذیری"><h1>فصل ۳: اهداف تفسیرپذیری</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۳-اهداف-تفسیرپذیری"><a class="header" href="#فصل-۳-اهداف-تفسیرپذیری">فصل ۳: اهداف تفسیرپذیری</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> Goals of Interpretability<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/goals.html">https://christophm.github.io/interpretable-ml-book/goals.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> Goals of Interpretability<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/goals.html">https://christophm.github.io/interpretable-ml-book/goals.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۴-مروری-بر-روشها" id="فصل-۴-مروری-بر-روشها"><h1>فصل ۴: مروری بر روش‌ها</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۴-مروری-بر-روشها"><a class="header" href="#فصل-۴-مروری-بر-روشها">فصل ۴: مروری بر روش‌ها</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> Methods Overview<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/overview.html">https://christophm.github.io/interpretable-ml-book/overview.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> Methods Overview<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/overview.html">https://christophm.github.io/interpretable-ml-book/overview.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۵-داده-و-مدلها" id="فصل-۵-داده-و-مدلها"><h1>فصل ۵: داده و مدل‌ها</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۵-داده-و-مدلها"><a class="header" href="#فصل-۵-داده-و-مدلها">فصل ۵: داده و مدل‌ها</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> Data and Models<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/data.html">https://christophm.github.io/interpretable-ml-book/data.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> Data and Models<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/data.html">https://christophm.github.io/interpretable-ml-book/data.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۶-رگرسیون-خطی" id="فصل-۶-رگرسیون-خطی"><h1>فصل ۶: رگرسیون خطی</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۶-رگرسیون-خطی"><a class="header" href="#فصل-۶-رگرسیون-خطی">فصل ۶: رگرسیون خطی</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> Linear Regression<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/limo.html">https://christophm.github.io/interpretable-ml-book/limo.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> Linear Regression<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/limo.html">https://christophm.github.io/interpretable-ml-book/limo.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۷-رگرسیون-لجستیک" id="فصل-۷-رگرسیون-لجستیک"><h1>فصل ۷: رگرسیون لجستیک</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۷-رگرسیون-لجستیک"><a class="header" href="#فصل-۷-رگرسیون-لجستیک">فصل ۷: رگرسیون لجستیک</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> Logistic Regression<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/logistic.html">https://christophm.github.io/interpretable-ml-book/logistic.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> Logistic Regression<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/logistic.html">https://christophm.github.io/interpretable-ml-book/logistic.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۸-glm-gam-و-بیشتر" id="فصل-۸-glm-gam-و-بیشتر"><h1>فصل ۸: GLM، GAM و بیشتر</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۸-glm-gam-و-بیشتر"><a class="header" href="#فصل-۸-glm-gam-و-بیشتر">فصل ۸: GLM، GAM و بیشتر</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> GLM, GAM and more<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/extend-lm.html">https://christophm.github.io/interpretable-ml-book/extend-lm.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> GLM, GAM and more<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/extend-lm.html">https://christophm.github.io/interpretable-ml-book/extend-lm.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۹-درخت-تصمیم" id="فصل-۹-درخت-تصمیم"><h1>فصل ۹: درخت تصمیم</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۹-درخت-تصمیم"><a class="header" href="#فصل-۹-درخت-تصمیم">فصل ۹: درخت تصمیم</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> Decision Tree<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/tree.html">https://christophm.github.io/interpretable-ml-book/tree.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> Decision Tree<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/tree.html">https://christophm.github.io/interpretable-ml-book/tree.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۱۰-قوانین-تصمیم" id="فصل-۱۰-قوانین-تصمیم"><h1>فصل ۱۰: قوانین تصمیم</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۱۰-قوانین-تصمیم"><a class="header" href="#فصل-۱۰-قوانین-تصمیم">فصل ۱۰: قوانین تصمیم</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> Decision Rules<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/rules.html">https://christophm.github.io/interpretable-ml-book/rules.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> Decision Rules<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/rules.html">https://christophm.github.io/interpretable-ml-book/rules.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۱۱-rulefit" id="فصل-۱۱-rulefit"><h1>فصل ۱۱: RuleFit</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۱۱-rulefit"><a class="header" href="#فصل-۱۱-rulefit">فصل ۱۱: RuleFit</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> RuleFit<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/rulefit.html">https://christophm.github.io/interpretable-ml-book/rulefit.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> RuleFit<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/rulefit.html">https://christophm.github.io/interpretable-ml-book/rulefit.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۱۲-نمودارهای-ceteris-paribus" id="فصل-۱۲-نمودارهای-ceteris-paribus"><h1>فصل ۱۲: نمودارهای Ceteris Paribus</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۱۲-نمودارهای-ceteris-paribus"><a class="header" href="#فصل-۱۲-نمودارهای-ceteris-paribus">فصل ۱۲: نمودارهای Ceteris Paribus</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> Ceteris Paribus Plots<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/ceteris-paribus.html">https://christophm.github.io/interpretable-ml-book/ceteris-paribus.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> Ceteris Paribus Plots<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/ceteris-paribus.html">https://christophm.github.io/interpretable-ml-book/ceteris-paribus.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۱۳-انتظار-شرطی-فردی-ice" id="فصل-۱۳-انتظار-شرطی-فردی-ice"><h1>فصل ۱۳: انتظار شرطی فردی (ICE)</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۱۳-انتظار-شرطی-فردی-ice"><a class="header" href="#فصل-۱۳-انتظار-شرطی-فردی-ice">فصل ۱۳: انتظار شرطی فردی (ICE)</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> Individual Conditional Expectation (ICE)<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/ice.html">https://christophm.github.io/interpretable-ml-book/ice.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> Individual Conditional Expectation (ICE)<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/ice.html">https://christophm.github.io/interpretable-ml-book/ice.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۱۴-lime" id="فصل-۱۴-lime"><h1>فصل ۱۴: LIME</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۱۴-lime"><a class="header" href="#فصل-۱۴-lime">فصل ۱۴: LIME</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> LIME<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/lime.html">https://christophm.github.io/interpretable-ml-book/lime.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> LIME<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/lime.html">https://christophm.github.io/interpretable-ml-book/lime.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۱۵-توضیحات-خلاف-واقع" id="فصل-۱۵-توضیحات-خلاف-واقع"><h1>فصل ۱۵: توضیحات خلاف واقع</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۱۵-توضیحات-خلاف-واقع"><a class="header" href="#فصل-۱۵-توضیحات-خلاف-واقع">فصل ۱۵: توضیحات خلاف واقع</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> Counterfactual Explanations<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/counterfactual.html">https://christophm.github.io/interpretable-ml-book/counterfactual.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> Counterfactual Explanations<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/counterfactual.html">https://christophm.github.io/interpretable-ml-book/counterfactual.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۱۶-قوانین-محدودهدار-anchors" id="فصل-۱۶-قوانین-محدودهدار-anchors"><h1>فصل ۱۶: قوانین محدوده‌دار (Anchors)</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۱۶-قوانین-محدودهدار-anchors"><a class="header" href="#فصل-۱۶-قوانین-محدودهدار-anchors">فصل ۱۶: قوانین محدوده‌دار (Anchors)</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> Scoped Rules (Anchors)<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/anchors.html">https://christophm.github.io/interpretable-ml-book/anchors.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> Scoped Rules (Anchors)<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/anchors.html">https://christophm.github.io/interpretable-ml-book/anchors.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۱۷-مقادیر-shapley" id="فصل-۱۷-مقادیر-shapley"><h1>فصل ۱۷: مقادیر Shapley</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۱۷-مقادیر-shapley"><a class="header" href="#فصل-۱۷-مقادیر-shapley">فصل ۱۷: مقادیر Shapley</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> Shapley Values<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/shapley.html">https://christophm.github.io/interpretable-ml-book/shapley.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> Shapley Values<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/shapley.html">https://christophm.github.io/interpretable-ml-book/shapley.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۱۸-shap" id="فصل-۱۸-shap"><h1>فصل ۱۸: SHAP</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۱۸-shap"><a class="header" href="#فصل-۱۸-shap">فصل ۱۸: SHAP</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> SHAP<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/shap.html">https://christophm.github.io/interpretable-ml-book/shap.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> SHAP<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/shap.html">https://christophm.github.io/interpretable-ml-book/shap.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۱۹-نمودار-وابستگی-جزئی-pdp" id="فصل-۱۹-نمودار-وابستگی-جزئی-pdp"><h1>فصل ۱۹: نمودار وابستگی جزئی (PDP)</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۱۹-نمودار-وابستگی-جزئی-pdp"><a class="header" href="#فصل-۱۹-نمودار-وابستگی-جزئی-pdp">فصل ۱۹: نمودار وابستگی جزئی (PDP)</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> Partial Dependence Plot (PDP)<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/pdp.html">https://christophm.github.io/interpretable-ml-book/pdp.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> Partial Dependence Plot (PDP)<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/pdp.html">https://christophm.github.io/interpretable-ml-book/pdp.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۲۰-اثرات-محلی-انباشته-ale" id="فصل-۲۰-اثرات-محلی-انباشته-ale"><h1>فصل ۲۰: اثرات محلی انباشته (ALE)</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۲۰-اثرات-محلی-انباشته-ale"><a class="header" href="#فصل-۲۰-اثرات-محلی-انباشته-ale">فصل ۲۰: اثرات محلی انباشته (ALE)</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> Accumulated Local Effects (ALE)<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/ale.html">https://christophm.github.io/interpretable-ml-book/ale.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> Accumulated Local Effects (ALE)<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/ale.html">https://christophm.github.io/interpretable-ml-book/ale.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۲۱-تعامل-ویژگیها" id="فصل-۲۱-تعامل-ویژگیها"><h1>فصل ۲۱: تعامل ویژگی‌ها</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۲۱-تعامل-ویژگیها"><a class="header" href="#فصل-۲۱-تعامل-ویژگیها">فصل ۲۱: تعامل ویژگی‌ها</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> Feature Interaction<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/interaction.html">https://christophm.github.io/interpretable-ml-book/interaction.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> Feature Interaction<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/interaction.html">https://christophm.github.io/interpretable-ml-book/interaction.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۲۲-تجزیه-تابعی" id="فصل-۲۲-تجزیه-تابعی"><h1>فصل ۲۲: تجزیه تابعی</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۲۲-تجزیه-تابعی"><a class="header" href="#فصل-۲۲-تجزیه-تابعی">فصل ۲۲: تجزیه تابعی</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> Functional Decomposition<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/decomposition.html">https://christophm.github.io/interpretable-ml-book/decomposition.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> Functional Decomposition<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/decomposition.html">https://christophm.github.io/interpretable-ml-book/decomposition.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۲۳-اهمیت-ویژگی-با-جایگشت" id="فصل-۲۳-اهمیت-ویژگی-با-جایگشت"><h1>فصل ۲۳: اهمیت ویژگی با جایگشت</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۲۳-اهمیت-ویژگی-با-جایگشت"><a class="header" href="#فصل-۲۳-اهمیت-ویژگی-با-جایگشت">فصل ۲۳: اهمیت ویژگی با جایگشت</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> Permutation Feature Importance<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/feature-importance.html">https://christophm.github.io/interpretable-ml-book/feature-importance.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> Permutation Feature Importance<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/feature-importance.html">https://christophm.github.io/interpretable-ml-book/feature-importance.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۲۴-اهمیت-lofo" id="فصل-۲۴-اهمیت-lofo"><h1>فصل ۲۴: اهمیت LOFO</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۲۴-اهمیت-lofo"><a class="header" href="#فصل-۲۴-اهمیت-lofo">فصل ۲۴: اهمیت LOFO</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> Leave One Feature Out (LOFO) Importance<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/lofo.html">https://christophm.github.io/interpretable-ml-book/lofo.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> Leave One Feature Out (LOFO) Importance<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/lofo.html">https://christophm.github.io/interpretable-ml-book/lofo.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۲۵-مدلهای-جایگزین-سراسری" id="فصل-۲۵-مدلهای-جایگزین-سراسری"><h1>فصل ۲۵: مدل‌های جایگزین سراسری</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۲۵-مدلهای-جایگزین-سراسری"><a class="header" href="#فصل-۲۵-مدلهای-جایگزین-سراسری">فصل ۲۵: مدل‌های جایگزین سراسری</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> Global Surrogate Models<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/global.html">https://christophm.github.io/interpretable-ml-book/global.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> Global Surrogate Models<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/global.html">https://christophm.github.io/interpretable-ml-book/global.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۲۶-نمونههای-اولیه-و-انتقادات" id="فصل-۲۶-نمونههای-اولیه-و-انتقادات"><h1>فصل ۲۶: نمونه‌های اولیه و انتقادات</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۲۶-نمونههای-اولیه-و-انتقادات"><a class="header" href="#فصل-۲۶-نمونههای-اولیه-و-انتقادات">فصل ۲۶: نمونه‌های اولیه و انتقادات</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> Prototypes and Criticisms<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/proto.html">https://christophm.github.io/interpretable-ml-book/proto.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> Prototypes and Criticisms<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/proto.html">https://christophm.github.io/interpretable-ml-book/proto.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۲۷-ویژگیهای-آموختهشده" id="فصل-۲۷-ویژگیهای-آموختهشده"><h1>فصل ۲۷: ویژگی‌های آموخته‌شده</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۲۷-ویژگیهای-آموختهشده"><a class="header" href="#فصل-۲۷-ویژگیهای-آموختهشده">فصل ۲۷: ویژگی‌های آموخته‌شده</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> Learned Features<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/cnn-features.html">https://christophm.github.io/interpretable-ml-book/cnn-features.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> Learned Features<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/cnn-features.html">https://christophm.github.io/interpretable-ml-book/cnn-features.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۲۸-نقشههای-برجستگی" id="فصل-۲۸-نقشههای-برجستگی"><h1>فصل ۲۸: نقشه‌های برجستگی</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۲۸-نقشههای-برجستگی"><a class="header" href="#فصل-۲۸-نقشههای-برجستگی">فصل ۲۸: نقشه‌های برجستگی</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> Saliency Maps<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/pixel-attribution.html">https://christophm.github.io/interpretable-ml-book/pixel-attribution.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> Saliency Maps<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/pixel-attribution.html">https://christophm.github.io/interpretable-ml-book/pixel-attribution.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۲۹-تشخیص-مفاهیم" id="فصل-۲۹-تشخیص-مفاهیم"><h1>فصل ۲۹: تشخیص مفاهیم</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۲۹-تشخیص-مفاهیم"><a class="header" href="#فصل-۲۹-تشخیص-مفاهیم">فصل ۲۹: تشخیص مفاهیم</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> Detecting Concepts<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/detecting-concepts.html">https://christophm.github.io/interpretable-ml-book/detecting-concepts.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> Detecting Concepts<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/detecting-concepts.html">https://christophm.github.io/interpretable-ml-book/detecting-concepts.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۳۰-مثالهای-خصمانه" id="فصل-۳۰-مثالهای-خصمانه"><h1>فصل ۳۰: مثال‌های خصمانه</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۳۰-مثالهای-خصمانه"><a class="header" href="#فصل-۳۰-مثالهای-خصمانه">فصل ۳۰: مثال‌های خصمانه</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> Adversarial Examples<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/adversarial.html">https://christophm.github.io/interpretable-ml-book/adversarial.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> Adversarial Examples<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/adversarial.html">https://christophm.github.io/interpretable-ml-book/adversarial.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۳۱-نمونههای-تأثیرگذار" id="فصل-۳۱-نمونههای-تأثیرگذار"><h1>فصل ۳۱: نمونه‌های تأثیرگذار</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۳۱-نمونههای-تأثیرگذار"><a class="header" href="#فصل-۳۱-نمونههای-تأثیرگذار">فصل ۳۱: نمونه‌های تأثیرگذار</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> Influential Instances<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/influential.html">https://christophm.github.io/interpretable-ml-book/influential.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> Influential Instances<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/influential.html">https://christophm.github.io/interpretable-ml-book/influential.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۳۲-ارزیابی-روشهای-تفسیر" id="فصل-۳۲-ارزیابی-روشهای-تفسیر"><h1>فصل ۳۲: ارزیابی روش‌های تفسیر</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۳۲-ارزیابی-روشهای-تفسیر"><a class="header" href="#فصل-۳۲-ارزیابی-روشهای-تفسیر">فصل ۳۲: ارزیابی روش‌های تفسیر</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> Evaluation of Interpretability Methods<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/evaluation.html">https://christophm.github.io/interpretable-ml-book/evaluation.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> Evaluation of Interpretability Methods<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/evaluation.html">https://christophm.github.io/interpretable-ml-book/evaluation.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۳۳-داستانها" id="فصل-۳۳-داستانها"><h1>فصل ۳۳: داستان‌ها</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۳۳-داستانها"><a class="header" href="#فصل-۳۳-داستانها">فصل ۳۳: داستان‌ها</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> Story Time<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/storytime.html">https://christophm.github.io/interpretable-ml-book/storytime.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> Story Time<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/storytime.html">https://christophm.github.io/interpretable-ml-book/storytime.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#فصل-۳۴-آینده-تفسیرپذیری" id="فصل-۳۴-آینده-تفسیرپذیری"><h1>فصل ۳۴: آینده تفسیرپذیری</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="فصل-۳۴-آینده-تفسیرپذیری"><a class="header" href="#فصل-۳۴-آینده-تفسیرپذیری">فصل ۳۴: آینده تفسیرپذیری</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> The Future of Interpretability<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/future.html">https://christophm.github.io/interpretable-ml-book/future.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> The Future of Interpretability<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/future.html">https://christophm.github.io/interpretable-ml-book/future.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#پیوست-الف-اصطلاحات-یادگیری-ماشین" id="پیوست-الف-اصطلاحات-یادگیری-ماشین"><h1>پیوست الف: اصطلاحات یادگیری ماشین</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="پیوست-الف-اصطلاحات-یادگیری-ماشین"><a class="header" href="#پیوست-الف-اصطلاحات-یادگیری-ماشین">پیوست الف: اصطلاحات یادگیری ماشین</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> Machine Learning Terms<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/what-is-machine-learning.html">https://christophm.github.io/interpretable-ml-book/what-is-machine-learning.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> Machine Learning Terms<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/what-is-machine-learning.html">https://christophm.github.io/interpretable-ml-book/what-is-machine-learning.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#پیوست-ب-اصطلاحات-ریاضی" id="پیوست-ب-اصطلاحات-ریاضی"><h1>پیوست ب: اصطلاحات ریاضی</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="پیوست-ب-اصطلاحات-ریاضی"><a class="header" href="#پیوست-ب-اصطلاحات-ریاضی">پیوست ب: اصطلاحات ریاضی</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> Math Terms<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/math-terms.html">https://christophm.github.io/interpretable-ml-book/math-terms.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> Math Terms<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/math-terms.html">https://christophm.github.io/interpretable-ml-book/math-terms.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
-<a class="header" href="print.html#پیوست-ج-بستههای-r" id="پیوست-ج-بستههای-r"><h1>پیوست ج: بسته‌های R</h1></a>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="پیوست-ج-بستههای-r"><a class="header" href="#پیوست-ج-بستههای-r">پیوست ج: بسته‌های R</a></h1>
 <blockquote>
-<p><strong>عنوان اصلی:</strong> R Packages Used<br />
-<strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/r-packages.html">https://christophm.github.io/interpretable-ml-book/r-packages.html</a><br />
-<strong>نویسنده:</strong> Christoph Molnar<br />
-<strong>مترجم:</strong> مریم محمودی</p>
+<p><strong>عنوان اصلی:</strong> R Packages Used<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/r-packages.html">https://christophm.github.io/interpretable-ml-book/r-packages.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
-<hr />
+<hr>
 <p><em>این فصل هنوز ترجمه نشده است.</em></p>
 
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
                 </div>
-
-                <!-- Mobile navigation buttons -->
-                
-
-                
-
             </div>
 
-            
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
 
-            
+            </nav>
 
         </div>
 
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
-        <!-- Local fallback for Font Awesome -->
+
+
         <script>
-            if ($(".fa").css("font-family") !== "FontAwesome") {
-                $('<link rel="stylesheet" type="text/css" href="_FontAwesome/css/font-awesome.css">').prependTo('head');
-            }
+            window.playground_copyable = true;
         </script>
 
-        
 
-        
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        
-        <script type="text/javascript">
-            window.print();
-        </script>
-        
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
-        
+        <!-- Custom JS scripts -->
 
-        
-
-        
-
-        
-
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
-
-        <!-- RTL fix: sidebar toggle works with right position -->
         <script>
-            (function() {
-                var origSidebarToggle = sidebarToggle;
-                if (typeof origSidebarToggle === 'function') {
-                    sidebarToggle = function() {
-                        var html = $("html");
-                        if ( html.hasClass("sidebar-hidden") ) {
-                            html.removeClass("sidebar-hidden").addClass("sidebar-visible");
-                            store.set('mdbook-sidebar', 'visible');
-                        } else if ( html.hasClass("sidebar-visible") ) {
-                            html.removeClass("sidebar-visible").addClass("sidebar-hidden");
-                            store.set('mdbook-sidebar', 'hidden');
-                        } else {
-                            if($("#sidebar").position().right === 0){
-                                html.addClass("sidebar-hidden");
-                                store.set('mdbook-sidebar', 'hidden');
-                            } else {
-                                html.addClass("sidebar-visible");
-                                store.set('mdbook-sidebar', 'visible');
-                            }
-                        }
-                    };
-                }
-            })();
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
         </script>
 
-        <!-- Custom JS script -->
-        
 
+    </div>
     </body>
 </html>
