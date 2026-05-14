@@ -2,13 +2,11 @@
 title = "یادگیری ماشین قابل تفسیر"
 authors = ["Christoph Molnar"]
 language = "fa"
-multilingual = false
 
 [output.html]
 default-theme = "light"
 preferred-dark-theme = "navy"
 git-repository-url = "https://github.com/maryam-mahmoudi/interpretable-machine-learning-persian"
-git-repository-icon = "fa-github"
 edit-url-template = "https://github.com/maryam-mahmoudi/interpretable-machine-learning-persian/edit/main/chapters/{path}"
 
 [output.html.playground]
