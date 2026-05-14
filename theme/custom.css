@@ -1,0 +1,145 @@
+html {
+  direction: rtl;
+}
+
+body {
+  text-align: right;
+}
+
+.sidebar {
+  left: auto;
+  right: 0;
+  -webkit-transition: right 0.5s;
+  -moz-transition: right 0.5s;
+  -o-transition: right 0.5s;
+  -ms-transition: right 0.5s;
+  transition: right 0.5s;
+}
+
+@media only screen and (max-width: 1060px) {
+  .sidebar {
+    left: auto;
+    right: -300px;
+  }
+}
+
+.sidebar-hidden .sidebar {
+  left: auto;
+  right: -300px;
+}
+
+.sidebar-visible .sidebar {
+  left: auto;
+  right: 0;
+}
+
+.chapter {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.section {
+  padding-left: 0;
+  padding-right: 20px;
+}
+
+.page-wrapper {
+  padding-left: 0;
+  padding-right: 300px;
+  -webkit-transition: padding-right 0.5s;
+  -moz-transition: padding-right 0.5s;
+  -o-transition: padding-right 0.5s;
+  -ms-transition: padding-right 0.5s;
+  transition: padding-right 0.5s;
+}
+
+@media only screen and (max-width: 1060px) {
+  .page-wrapper {
+    padding-right: 0;
+  }
+}
+
+.sidebar-hidden .page-wrapper {
+  padding-right: 0;
+}
+
+.sidebar-visible .page-wrapper {
+  padding-right: 300px;
+}
+
+.menu-bar .left-buttons {
+  float: right;
+}
+
+.menu-bar .right-buttons {
+  float: left;
+}
+
+.previous {
+  left: auto;
+  right: 315px;
+  -webkit-transition: right 0.5s;
+  -moz-transition: right 0.5s;
+  -o-transition: right 0.5s;
+  -ms-transition: right 0.5s;
+  transition: right 0.5s;
+}
+
+@media only screen and (max-width: 1060px) {
+  .previous {
+    left: auto;
+    right: 15px;
+  }
+}
+
+.next {
+  right: auto;
+  left: 15px;
+}
+
+.sidebar-hidden .previous {
+  left: auto;
+  right: 15px;
+}
+
+.sidebar-visible .previous {
+  left: auto;
+  right: 315px;
+}
+
+.theme-popup {
+  left: auto;
+  right: 10px;
+}
+
+blockquote {
+  border-right: 0.1em solid #e1edf1;
+  border-left: none;
+}
+
+@media only screen and (max-width: 1250px) {
+  .next {
+    float: left;
+  }
+  .previous {
+    float: right;
+  }
+}
+
+.content {
+  text-align: right;
+}
+
+.content table {
+  text-align: right;
+}
+
+.content ul,
+.content ol {
+  padding-right: 2em;
+  padding-left: 0;
+}
+
+.content li {
+  text-align: right;
+}
