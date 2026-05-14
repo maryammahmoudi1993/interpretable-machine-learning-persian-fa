@@ -1,0 +1,248 @@
+<!DOCTYPE HTML>
+<html lang="en" dir="rtl">
+    <head>
+        <meta charset="UTF-8">
+        <title>صفحه جلد - یادگیری ماشین قابل تفسیر</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="../favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+
+        <!-- Fetch Clipboard.js from CDN but have a local fallback -->
+        <script src="https://cdn.jsdelivr.net/clipboard.js/1.6.1/clipboard.min.js"></script>
+        <script>
+            if (typeof Clipboard == 'undefined') {
+                document.write(unescape("%3Cscript src='clipboard.min.js'%3E%3C/script%3E"));
+            }
+        </script>
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+
+        <!-- Fetch store.js from local - TODO add CDN when 2.x.x is available on cdnjs -->
+        <script src="store.js"></script>
+
+    </head>
+    <body class="light">
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme = store.get('mdbook-theme');
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var sidebar = store.get('mdbook-sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter">[[object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], [object], ]</ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page" tabindex="-1">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div class="right-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars" title="تغییر نمایش فهرست"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush" title="تغییر پوسته"></i>
+                    </div>
+
+                    <h1 class="menu-title">یادگیری ماشین قابل تفسیر</h1>
+
+                    <div class="left-buttons">
+                        <a href="print.html">
+                            <i id="print-button" class="fa fa-print" title="چاپ کتاب"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                <div id="content" class="content">
+                    <a class="header" href="chapters/00-cover.html#یادگیری-ماشین-قابل-تفسیر" id="یادگیری-ماشین-قابل-تفسیر"><h1>یادگیری ماشین قابل تفسیر</h1></a>
+<a class="header" href="chapters/00-cover.html#راهنمایی-برای-قابل-توضیح-کردن-مدلهای-جعبه-سیاه" id="راهنمایی-برای-قابل-توضیح-کردن-مدلهای-جعبه-سیاه"><h2>راهنمایی برای قابل توضیح کردن مدل‌های جعبه سیاه</h2></a>
+<hr />
+<div dir="rtl" align="center">
+<p><strong>نویسنده اصلی</strong></p>
+<a class="header" href="chapters/00-cover.html#christoph-molnar" id="christoph-molnar"><h1>Christoph Molnar</h1></a>
+<hr />
+<p><strong>ترجمه فارسی</strong></p>
+<a class="header" href="chapters/00-cover.html#مریم-محمودی" id="مریم-محمودی"><h1>مریم محمودی</h1></a>
+<hr />
+<p>ویرایش سوم</p>
+<hr />
+<p><em>کتاب اصلی به صورت رایگان در دسترس است:</em><br />
+<a href="https://christophm.github.io/interpretable-ml-book/">https://christophm.github.io/interpretable-ml-book/</a></p>
+<hr />
+<p>مجوز: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0</a></p>
+<p>تمام حقوق معنوی اثر متعلق به نویسنده اصلی <strong>Christoph Molnar</strong> است.<br />
+این ترجمه توسط <strong>مریم محمودی</strong> با هدف دسترسی آزاد جامعه فارسی‌زبان به منابع یادگیری ماشین تهیه شده است.</p>
+</div>
+<hr />
+<a class="header" href="chapters/00-cover.html#فهرست-مطالب" id="فهرست-مطالب"><h2>فهرست مطالب</h2></a>
+<a class="header" href="chapters/00-cover.html#مقدمه-و-مبانی" id="مقدمه-و-مبانی"><h3>مقدمه و مبانی</h3></a>
+<ul>
+<li><a href="./01-intro.md">فصل ۱ — مقدمه</a></li>
+<li><a href="./02-interpretability.md">فصل ۲ — تفسیرپذیری</a></li>
+<li><a href="./03-goals.md">فصل ۳ — اهداف تفسیرپذیری</a></li>
+<li><a href="./04-overview.md">فصل ۴ — مروری بر روش‌ها</a></li>
+<li><a href="./05-data.md">فصل ۵ — داده و مدل‌ها</a></li>
+</ul>
+<a class="header" href="chapters/00-cover.html#مدلهای-قابل-تفسیر" id="مدلهای-قابل-تفسیر"><h3>مدل‌های قابل تفسیر</h3></a>
+<ul>
+<li><a href="./06-linear-regression.md">فصل ۶ — رگرسیون خطی</a></li>
+<li><a href="./07-logistic-regression.md">فصل ۷ — رگرسیون لجستیک</a></li>
+<li><a href="./08-glm-gam.md">فصل ۸ — GLM، GAM و بیشتر</a></li>
+<li><a href="./09-decision-tree.md">فصل ۹ — درخت تصمیم</a></li>
+<li><a href="./10-decision-rules.md">فصل ۱۰ — قوانین تصمیم</a></li>
+<li><a href="./11-rulefit.md">فصل ۱۱ — RuleFit</a></li>
+</ul>
+<a class="header" href="chapters/00-cover.html#روشهای-محلی-مستقل-از-مدل" id="روشهای-محلی-مستقل-از-مدل"><h3>روش‌های محلی مستقل از مدل</h3></a>
+<ul>
+<li><a href="./12-ceteris-paribus.md">فصل ۱۲ — نمودارهای Ceteris Paribus</a></li>
+<li><a href="./13-ice.md">فصل ۱۳ — انتظار شرطی فردی (ICE)</a></li>
+<li><a href="./14-lime.md">فصل ۱۴ — LIME</a></li>
+<li><a href="./15-counterfactual.md">فصل ۱۵ — توضیحات خلاف واقع</a></li>
+<li><a href="./16-anchors.md">فصل ۱۶ — قوانین محدوده‌دار (Anchors)</a></li>
+<li><a href="./17-shapley.md">فصل ۱۷ — مقادیر Shapley</a></li>
+<li><a href="./18-shap.md">فصل ۱۸ — SHAP</a></li>
+</ul>
+<a class="header" href="chapters/00-cover.html#روشهای-سراسری-مستقل-از-مدل" id="روشهای-سراسری-مستقل-از-مدل"><h3>روش‌های سراسری مستقل از مدل</h3></a>
+<ul>
+<li><a href="./19-pdp.md">فصل ۱۹ — نمودار وابستگی جزئی (PDP)</a></li>
+<li><a href="./20-ale.md">فصل ۲۰ — اثرات محلی انباشته (ALE)</a></li>
+<li><a href="./21-interaction.md">فصل ۲۱ — تعامل ویژگی‌ها</a></li>
+<li><a href="./22-decomposition.md">فصل ۲۲ — تجزیه تابعی</a></li>
+<li><a href="./23-feature-importance.md">فصل ۲۳ — اهمیت ویژگی با جایگشت</a></li>
+<li><a href="./24-lofo.md">فصل ۲۴ — اهمیت LOFO</a></li>
+<li><a href="./25-surrogate.md">فصل ۲۵ — مدل‌های جایگزین سراسری</a></li>
+<li><a href="./26-prototypes.md">فصل ۲۶ — نمونه‌های اولیه و انتقادات</a></li>
+</ul>
+<a class="header" href="chapters/00-cover.html#تفسیر-شبکههای-عصبی" id="تفسیر-شبکههای-عصبی"><h3>تفسیر شبکه‌های عصبی</h3></a>
+<ul>
+<li><a href="./27-cnn-features.md">فصل ۲۷ — ویژگی‌های آموخته‌شده</a></li>
+<li><a href="./28-saliency-maps.md">فصل ۲۸ — نقشه‌های برجستگی</a></li>
+<li><a href="./29-detecting-concepts.md">فصل ۲۹ — تشخیص مفاهیم</a></li>
+<li><a href="./30-adversarial.md">فصل ۳۰ — مثال‌های خصمانه</a></li>
+<li><a href="./31-influential.md">فصل ۳۱ — نمونه‌های تأثیرگذار</a></li>
+</ul>
+<a class="header" href="chapters/00-cover.html#فراتر-از-روشها" id="فراتر-از-روشها"><h3>فراتر از روش‌ها</h3></a>
+<ul>
+<li><a href="./32-evaluation.md">فصل ۳۲ — ارزیابی روش‌های تفسیر</a></li>
+<li><a href="./33-storytime.md">فصل ۳۳ — داستان‌ها</a></li>
+<li><a href="./34-future.md">فصل ۳۴ — آینده تفسیرپذیری</a></li>
+</ul>
+<a class="header" href="chapters/00-cover.html#پیوستها" id="پیوستها"><h3>پیوست‌ها</h3></a>
+<ul>
+<li><a href="./appendix-A-ml-terms.md">پیوست الف — اصطلاحات یادگیری ماشین</a></li>
+<li><a href="./appendix-B-math.md">پیوست ب — اصطلاحات ریاضی</a></li>
+<li><a href="./appendix-C-packages.md">پیوست ج — بسته‌های R</a></li>
+</ul>
+
+                </div>
+
+                <!-- Mobile navigation buttons -->
+                
+
+                
+                    <a rel="next" href="chapters/001-about-book.html" class="mobile-nav-chapters next" title="بعدی">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+
+            </div>
+
+            
+
+            
+                <a href="chapters/001-about-book.html" class="nav-chapters next" title="بعدی">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            
+
+        </div>
+
+
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if ($(".fa").css("font-family") !== "FontAwesome") {
+                $('<link rel="stylesheet" type="text/css" href="_FontAwesome/css/font-awesome.css">').prependTo('head');
+            }
+        </script>
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- RTL fix: sidebar toggle works with right position -->
+        <script>
+            (function() {
+                var origSidebarToggle = sidebarToggle;
+                if (typeof origSidebarToggle === 'function') {
+                    sidebarToggle = function() {
+                        var html = $("html");
+                        if ( html.hasClass("sidebar-hidden") ) {
+                            html.removeClass("sidebar-hidden").addClass("sidebar-visible");
+                            store.set('mdbook-sidebar', 'visible');
+                        } else if ( html.hasClass("sidebar-visible") ) {
+                            html.removeClass("sidebar-visible").addClass("sidebar-hidden");
+                            store.set('mdbook-sidebar', 'hidden');
+                        } else {
+                            if($("#sidebar").position().right === 0){
+                                html.addClass("sidebar-hidden");
+                                store.set('mdbook-sidebar', 'hidden');
+                            } else {
+                                html.addClass("sidebar-visible");
+                                store.set('mdbook-sidebar', 'visible');
+                            }
+                        }
+                    };
+                }
+            })();
+        </script>
+
+        <!-- Custom JS script -->
+        
+
+    </body>
+</html>
