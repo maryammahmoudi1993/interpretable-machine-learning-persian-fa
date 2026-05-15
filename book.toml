@@ -7,7 +7,7 @@ language = "fa"
 default-theme = "light"
 preferred-dark-theme = "navy"
 mathjax-support = true
-git-repository-url = "https://github.com/maryam-mahmoudi/interpretable-machine-learning-persian"
+git-repository-url = "https://github.com/maryammahmoudi1993/interpretable-machine-learning-persian-fa"
 edit-url-template = "https://github.com/maryam-mahmoudi/interpretable-machine-learning-persian/edit/main/chapters/{path}"
 
 [output.html.playground]
