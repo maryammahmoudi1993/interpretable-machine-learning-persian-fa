@@ -113,7 +113,7 @@ $$\hat{f}(\mathbf{x}) = \hat{\beta}_0 + \sum_{k=1}^{K} \hat{\alpha}_k r_k(\mathb
 
 پارامترها با بهینه‌سازی Lasso یاد گرفته می‌شوند:
 
-$$\left(\{\hat{\alpha}\}_1^K, \{\hat{\beta}\}_0^p\right) = \arg\min \sum_{i=1}^{n} L\left(y^{(i)}, \hat{f}(\mathbf{x}^{(i)})\right) + \lambda \cdot \left(\sum_{k=1}^{K} |\hat{\alpha}_k| + \sum_{j=1}^{p} |\hat{\beta}_j|\right)$$
+$$\arg\min_{\hat{\alpha}_{1:K},\, \hat{\beta}_{0:p}} \sum_{i=1}^{n} L\left(y^{(i)}, \hat{f}(\mathbf{x}^{(i)})\right) + \lambda \cdot \left(\sum_{k=1}^{K} |\hat{\alpha}_k| + \sum_{j=1}^{p} |\hat{\beta}_j|\right)$$
 
 جریمه $L_1$ (Lasso) بسیاری از ضرایب را به صفر می‌رساند و مدل تنک تولید می‌کند.
 
