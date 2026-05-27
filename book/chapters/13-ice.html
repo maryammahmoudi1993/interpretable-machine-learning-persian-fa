@@ -46,7 +46,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c29cad26.js";
+            window.path_to_searchindex_js = "../searchindex-1b9638e5.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-2f8e2b6a.js"></script>
@@ -196,7 +196,86 @@
 <p><strong>عنوان اصلی:</strong> Individual Conditional Expectation (ICE)<br><strong>منبع:</strong> <a href="https://christophm.github.io/interpretable-ml-book/ice.html">https://christophm.github.io/interpretable-ml-book/ice.html</a><br><strong>نویسنده:</strong> Christoph Molnar<br><strong>مترجم:</strong> مریم محمودی</p>
 </blockquote>
 <hr>
-<p><em>این فصل هنوز ترجمه نشده است.</em></p>
+<p>نمودارهای <strong>انتظار شرطی فردی</strong> (Individual Conditional Expectation — ICE) برای هر نمونه یک خط جداگانه رسم می‌کنند که نشان می‌دهد با تغییر یک ویژگی، پیش‌بینی آن نمونه چگونه تغییر می‌کند.</p>
+<p>به عبارت دیگر، ICE نشان می‌دهد که پیش‌بینی برای <strong>هر نمونه به‌صورت جداگانه</strong> به یک ویژگی وابسته است. نمودار PDP که در فصل بعد بررسی می‌شود، میانگین تمام این خطوط ICE است و تأثیر متوسط ویژگی را نشان می‌دهد — در حالی که ICE تنوع و ناهمگنی اثرات فردی را آشکار می‌کند.</p>
+<p><strong>نحوه محاسبه:</strong> برای هر نمونه $\mathbf{x}^{(i)}$ و ویژگی $j$:</p>
+<p>۱. تمام ویژگی‌های دیگر را ثابت نگه دارید.
+۲. مقدار ویژگی $j$ را با مقادیر یک شبکه ${z_1, \ldots, z_K}$ جایگزین کنید و نمونه‌های جدید بسازید.
+۳. برای هر نمونه تغییریافته پیش‌بینی مدل را محاسبه کنید.
+۴. نتیجه را به‌صورت یک خط رسم کنید.</p>
+<p>مجموع تمام این خطوط — یک خط به‌ازای هر نمونه از مجموعه داده — نمودار ICE را تشکیل می‌دهد. این همان مجموعه کامل منحنی‌های Ceteris Paribus برای یک مجموعه داده است (فصل ۱۲).</p>
+<hr>
+<h2 id="مثالها"><a class="header" href="#مثالها">مثال‌ها</a></h2>
+<h3 id="مثال-کرایه-دوچرخه"><a class="header" href="#مثال-کرایه-دوچرخه">مثال: کرایه دوچرخه</a></h3>
+<p>شکل ۱۳.۱ نمودارهای ICE را برای پیش‌بینی تعداد دوچرخه‌های اجاره‌شده بر اساس دما، رطوبت، و سرعت باد نشان می‌دهد. هر خط نمایانگر یک روز خاص از داده است.</p>
+<p><img src="https://christophm.github.io/interpretable-ml-book/ice_files/figure-html/fig-ice-bike-1.png" alt="نمودارهای ICE برای کرایه دوچرخه"></p>
+<p><em>شکل ۱۳.۱: نمودارهای ICE پیش‌بینی‌شده برای کرایه دوچرخه بر اساس دما، رطوبت و سرعت باد.</em></p>
+<p>برای تحلیل عمیق‌تر، می‌توان خطوط ICE را بر اساس یک ویژگی دیگر رنگ‌آمیزی کرد. شکل ۱۳.۲ خطوط را بر اساس فصل رنگ‌بندی کرده است.</p>
+<p><img src="https://christophm.github.io/interpretable-ml-book/ice_files/figure-html/fig-ice-bike-colored-1.png" alt="نمودارهای ICE رنگ‌بندی‌شده بر اساس فصل"></p>
+<p><em>شکل ۱۳.۲: منحنی‌های ICE برای جنگل تصادفی پیش‌بینی‌کننده کرایه دوچرخه. خطوط بر اساس فصل رنگ‌بندی شده‌اند. در بالای نمودارهای ICE، نمودارهای جعبه‌ای توزیع رطوبت در هر فصل را نشان می‌دهند.</em></p>
+<p>این رنگ‌بندی اثرات ناهمگن را آشکار می‌کند. برای رطوبت، اثرات بر اساس فصل متفاوت است — زمستان کاهش جزئی دارد، در حالی که تابستان بین ۲۰ تا ۶۰ درصد رطوبت کاملاً صاف است و بالای ۶۰ درصد افت محسوسی دارد.</p>
+<h3 id="مثال-پنگوئنها"><a class="header" href="#مثال-پنگوئنها">مثال: پنگوئن‌ها</a></h3>
+<p>شکل ۱۳.۳ نمودار ICE برای احتمال پیش‌بینی «Adelie بودن» بر اساس طول منقار را نشان می‌دهد. هر خط نمایانگر یک پنگوئن است.</p>
+<p><img src="https://christophm.github.io/interpretable-ml-book/ice_files/figure-html/fig-ice-penguins-1.png" alt="نمودار ICE برای پنگوئن‌ها"></p>
+<p><em>شکل ۱۳.۳: نمودار ICE برای $P(\text{Adelie})$ بر اساس طول منقار. هر خط نمایانگر یک پنگوئن است.</em></p>
+<hr>
+<h2 id="نمودار-ice-مرکزشده-c-ice"><a class="header" href="#نمودار-ice-مرکزشده-c-ice">نمودار ICE مرکزشده (c-ICE)</a></h2>
+<p>گاهی اوقات تفسیر نمودار ICE دشوار است زیرا خطوط از مقادیر پیش‌بینی متفاوت شروع می‌کنند. برای حل این مشکل، می‌توان نمودار ICE را <strong>مرکز</strong> کرد: هر خط را از یک نقطه لنگر (anchor) ثابت $a$ شروع می‌کنیم و اختلاف پیش‌بینی را نسبت به آن نقطه نشان می‌دهیم.</p>
+<p>فرمول ICE مرکزشده برای نمونه $i$ و ویژگی $j$ به صورت زیر است:</p>
+<p>$$\widehat{ICE}^{(i)}<em>j(x_j) = \hat{f}(x_j,, \mathbf{x}^{(i)}</em>{-j}) - \hat{f}(a,, \mathbf{x}^{(i)}_{-j})$$</p>
+<p>که در آن $a$ نقطه لنگر است — معمولاً کمینه مشاهده‌شده ویژگی $j$ در مجموعه داده. با این روش، تمام خطوط در نقطه $a$ با مقدار صفر شروع می‌کنند و تفاوت‌های نسبی اثرات واضح‌تر می‌شوند.</p>
+<p><img src="https://christophm.github.io/interpretable-ml-book/ice_files/figure-html/ice-bike-centered-1.png" alt="نمودار ICE مرکزشده برای دما"></p>
+<p><em>شکل ۱۳.۴: نمودارهای ICE مرکزشده برای پیش‌بینی تعداد دوچرخه بر اساس دما. خطوط اختلاف پیش‌بینی را نسبت به پیش‌بینی در کمینه دمای مشاهده‌شده نشان می‌دهند.</em></p>
+<hr>
+<h2 id="نمودار-ice-مشتق-d-ice"><a class="header" href="#نمودار-ice-مشتق-d-ice">نمودار ICE مشتق (d-ICE)</a></h2>
+<p>روش دیگری برای بررسی تعاملات بین ویژگی‌ها، محاسبه <strong>مشتق</strong> منحنی‌های ICE نسبت به ویژگی مورد بررسی است.</p>
+<p>اگر مدل هیچ تعاملی بین ویژگی $j$ و سایر ویژگی‌ها نداشته باشد، می‌توان آن را به صورت زیر تجزیه کرد:</p>
+<p>$$\hat{f}(\mathbf{x}) = \hat{f}(x_j,, \mathbf{x}<em>{-j}) = g(x_j) + h(\mathbf{x}</em>{-j})$$</p>
+<p>در این حالت، مشتق جزئی نسبت به $x_j$ فقط به $g$ بستگی دارد و برای همه نمونه‌ها یکسان است:</p>
+<p>$$\frac{\partial \hat{f}(\mathbf{x})}{\partial x_j} = g’(x_j)$$</p>
+<p>اما اگر مدل تعامل داشته باشد، مشتق بین نمونه‌های مختلف متفاوت خواهد بود. بنابراین:</p>
+<ul>
+<li>اگر <strong>مشتق‌های ICE</strong> برای همه نمونه‌ها مشابه باشند → تعاملی وجود ندارد.</li>
+<li>اگر مشتق‌ها <strong>ناهمگن</strong> باشند → مدل دارای تعامل بین ویژگی $j$ و سایر ویژگی‌هاست.</li>
+</ul>
+<p>این روش ابزار قدرتمندی برای <strong>تشخیص تعاملات</strong> در مدل‌های جعبه سیاه است.</p>
+<hr>
+<h2 id="نقاط-قوت"><a class="header" href="#نقاط-قوت">نقاط قوت</a></h2>
+<p><strong>شهودی و قابل‌درک:</strong> هر خط نمایانگر پیش‌بینی‌های یک نمونه است. اگر کسی اندکی با مدل‌های پیش‌بینی آشنا باشد، می‌تواند نمودار ICE را بدون توضیح پیچیده درک کند.</p>
+<p><strong>آشکارسازی روابط ناهمگن:</strong> نمودارهای ICE می‌توانند روابط ناهمگن را که در PDP پنهان می‌مانند آشکار کنند. اگر PDP یک خط صاف نشان دهد، ICE ممکن است تنوع قابل‌توجهی بین نمونه‌ها را نشان دهد. این ناهمگنی می‌تواند سرنخ مهمی درباره تعاملات در مدل باشد.</p>
+<hr>
+<h2 id="محدودیتها"><a class="header" href="#محدودیتها">محدودیت‌ها</a></h2>
+<p><strong>تمرکز بر یک ویژگی در یک زمان:</strong> مانند PDP، نمودارهای ICE فقط تأثیر یک ویژگی واحد را نشان می‌دهند. تعاملات پیچیده بین چند ویژگی به‌راحتی قابل نمایش نیستند.</p>
+<p><strong>مشکل همبستگی:</strong> وقتی ویژگی‌ها با هم همبسته هستند، ترکیب‌های غیرواقعی از مقادیر ایجاد می‌شود. این مشکل مشابه PDP است — ویژگی‌هایی که با ویژگی مورد تحلیل همبسته‌اند، ممکن است ترکیب‌هایی ایجاد کنند که در داده‌های واقعی وجود ندارند.</p>
+<p><strong>ازدحام نمودار:</strong> نمایش تعداد زیادی خط در یک نمودار می‌تواند آن را به‌شدت شلوغ و ناخوانا کند. می‌توان با زیرنمونه‌گیری تصادفی از نمونه‌ها یا کاهش شفافیت (alpha) خطوط، این مشکل را کاهش داد.</p>
+<p><strong>دشواری نمایش میانگین:</strong> بدون روش‌های تکمیلی، مشاهده اثر متوسط در کنار تنوع فردی دشوار است. افزودن خط PDP به نمودار ICE این مشکل را حل می‌کند.</p>
+<hr>
+<h2 id="نرمافزار-و-جایگزینها"><a class="header" href="#نرمافزار-و-جایگزینها">نرم‌افزار و جایگزین‌ها</a></h2>
+<p>نمودارهای ICE در چندین بسته نرم‌افزاری پیاده‌سازی شده‌اند:</p>
+<p><strong>R:</strong></p>
+<ul>
+<li><strong>iml</strong> (Molnar، Casalicchio، و Bischl، ۲۰۱۸): بسته جامع تفسیرپذیری که ICE و PDP را پشتیبانی می‌کند.</li>
+<li><strong>ICEbox</strong> (Goldstein و همکاران، ۲۰۱۵): بسته اختصاصی برای نمودارهای ICE.</li>
+<li><strong>pdp</strong>: برای نمودارهای وابستگی جزئی که ICE را نیز پوشش می‌دهد.</li>
+<li><strong>condvis</strong>: برای تجسم تعاملی مدل‌های شرطی.</li>
+</ul>
+<p><strong>Python:</strong></p>
+<ul>
+<li><strong>PiML</strong> (Sudjianto و همکاران، ۲۰۲۳): ابزار تفسیرپذیری که ICE را پشتیبانی می‌کند.</li>
+</ul>
+<hr>
+<h2 id="منابع"><a class="header" href="#منابع">منابع</a></h2>
+<ul>
+<li>
+<p>Goldstein, Alex, Adam Kapelner, Justin Bleich, و Emil Pitkin. ۲۰۱۵. «Peeking Inside the Black Box: Visualizing Statistical Learning With Plots of Individual Conditional Expectation.» <em>Journal of Computational and Graphical Statistics</em> 24 (1): 44–65.</p>
+</li>
+<li>
+<p>Molnar, Christoph, Giuseppe Casalicchio, و Bernd Bischl. ۲۰۱۸. «Iml: An R Package for Interpretable Machine Learning.» <em>Journal of Open Source Software</em> 3 (26): 786.</p>
+</li>
+<li>
+<p>Sudjianto, Agus, William Zhu, Jie Chen, Aijun Zhang, Sebastian Lemke, و Zebin Yang. ۲۰۲۳. «PiML Toolbox for Interpretable Machine Learning Model Development and Diagnostics.»</p>
+</li>
+</ul>
 
                     </main>
 
