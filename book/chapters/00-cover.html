@@ -46,7 +46,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-1bdc35cf.js";
+            window.path_to_searchindex_js = "../searchindex-f8413eb3.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-e37baa1b.js"></script>
@@ -191,7 +191,84 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="صفحه-جلد"><a class="header" href="#صفحه-جلد">صفحه جلد</a></h1>
+                        <h1 id="یادگیری-ماشین-قابل-تفسیر"><a class="header" href="#یادگیری-ماشین-قابل-تفسیر">یادگیری ماشین قابل تفسیر</a></h1>
+<h2 id="راهنمایی-برای-قابل-توضیح-کردن-مدلهای-جعبه-سیاه"><a class="header" href="#راهنمایی-برای-قابل-توضیح-کردن-مدلهای-جعبه-سیاه">راهنمایی برای قابل توضیح کردن مدل‌های جعبه سیاه</a></h2>
+<hr>
+<div dir="rtl" align="center">
+<p><strong>نویسنده اصلی</strong></p>
+<h1 id="christoph-molnar"><a class="header" href="#christoph-molnar">Christoph Molnar</a></h1>
+<hr>
+<p><strong>ترجمه فارسی</strong></p>
+<h1 id="مریم-محمودی"><a class="header" href="#مریم-محمودی">مریم محمودی</a></h1>
+<hr>
+<p>ویرایش سوم</p>
+<hr>
+<p><em>کتاب اصلی به صورت رایگان در دسترس است:</em><br><a href="https://christophm.github.io/interpretable-ml-book/">https://christophm.github.io/interpretable-ml-book/</a></p>
+<hr>
+<p>مجوز: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0</a></p>
+<p>تمام حقوق معنوی اثر متعلق به نویسنده اصلی <strong>Christoph Molnar</strong> است.<br>این ترجمه توسط <strong>مریم محمودی</strong> با هدف دسترسی آزاد جامعه فارسی‌زبان به منابع یادگیری ماشین تهیه شده است.</p>
+</div>
+
+<hr>
+<h2 id="فهرست-مطالب"><a class="header" href="#فهرست-مطالب">فهرست مطالب</a></h2>
+<h3 id="مقدمه-و-مبانی"><a class="header" href="#مقدمه-و-مبانی">مقدمه و مبانی</a></h3>
+<ul>
+<li><a href="./01-intro.html">فصل ۱ — مقدمه</a></li>
+<li><a href="./02-interpretability.html">فصل ۲ — تفسیرپذیری</a></li>
+<li><a href="./03-goals.html">فصل ۳ — اهداف تفسیرپذیری</a></li>
+<li><a href="./04-overview.html">فصل ۴ — مروری بر روش‌ها</a></li>
+<li><a href="./05-data.html">فصل ۵ — داده و مدل‌ها</a></li>
+</ul>
+<h3 id="مدلهای-قابل-تفسیر"><a class="header" href="#مدلهای-قابل-تفسیر">مدل‌های قابل تفسیر</a></h3>
+<ul>
+<li><a href="./06-linear-regression.html">فصل ۶ — رگرسیون خطی</a></li>
+<li><a href="./07-logistic-regression.html">فصل ۷ — رگرسیون لجستیک</a></li>
+<li><a href="./08-glm-gam.html">فصل ۸ — GLM، GAM و بیشتر</a></li>
+<li><a href="./09-decision-tree.html">فصل ۹ — درخت تصمیم</a></li>
+<li><a href="./10-decision-rules.html">فصل ۱۰ — قوانین تصمیم</a></li>
+<li><a href="./11-rulefit.html">فصل ۱۱ — RuleFit</a></li>
+</ul>
+<h3 id="روشهای-محلی-مستقل-از-مدل"><a class="header" href="#روشهای-محلی-مستقل-از-مدل">روش‌های محلی مستقل از مدل</a></h3>
+<ul>
+<li><a href="./12-ceteris-paribus.html">فصل ۱۲ — نمودارهای Ceteris Paribus</a></li>
+<li><a href="./13-ice.html">فصل ۱۳ — انتظار شرطی فردی (ICE)</a></li>
+<li><a href="./14-lime.html">فصل ۱۴ — LIME</a></li>
+<li><a href="./15-counterfactual.html">فصل ۱۵ — توضیحات خلاف واقع</a></li>
+<li><a href="./16-anchors.html">فصل ۱۶ — قوانین محدوده‌دار (Anchors)</a></li>
+<li><a href="./17-shapley.html">فصل ۱۷ — مقادیر Shapley</a></li>
+<li><a href="./18-shap.html">فصل ۱۸ — SHAP</a></li>
+</ul>
+<h3 id="روشهای-سراسری-مستقل-از-مدل"><a class="header" href="#روشهای-سراسری-مستقل-از-مدل">روش‌های سراسری مستقل از مدل</a></h3>
+<ul>
+<li><a href="./19-pdp.html">فصل ۱۹ — نمودار وابستگی جزئی (PDP)</a></li>
+<li><a href="./20-ale.html">فصل ۲۰ — اثرات محلی انباشته (ALE)</a></li>
+<li><a href="./21-interaction.html">فصل ۲۱ — تعامل ویژگی‌ها</a></li>
+<li><a href="./22-decomposition.html">فصل ۲۲ — تجزیه تابعی</a></li>
+<li><a href="./23-feature-importance.html">فصل ۲۳ — اهمیت ویژگی با جایگشت</a></li>
+<li><a href="./24-lofo.html">فصل ۲۴ — اهمیت LOFO</a></li>
+<li><a href="./25-surrogate.html">فصل ۲۵ — مدل‌های جایگزین سراسری</a></li>
+<li><a href="./26-prototypes.html">فصل ۲۶ — نمونه‌های اولیه و انتقادات</a></li>
+</ul>
+<h3 id="تفسیر-شبکههای-عصبی"><a class="header" href="#تفسیر-شبکههای-عصبی">تفسیر شبکه‌های عصبی</a></h3>
+<ul>
+<li><a href="./27-cnn-features.html">فصل ۲۷ — ویژگی‌های آموخته‌شده</a></li>
+<li><a href="./28-saliency-maps.html">فصل ۲۸ — نقشه‌های برجستگی</a></li>
+<li><a href="./29-detecting-concepts.html">فصل ۲۹ — تشخیص مفاهیم</a></li>
+<li><a href="./30-adversarial.html">فصل ۳۰ — مثال‌های خصمانه</a></li>
+<li><a href="./31-influential.html">فصل ۳۱ — نمونه‌های تأثیرگذار</a></li>
+</ul>
+<h3 id="فراتر-از-روشها"><a class="header" href="#فراتر-از-روشها">فراتر از روش‌ها</a></h3>
+<ul>
+<li><a href="./32-evaluation.html">فصل ۳۲ — ارزیابی روش‌های تفسیر</a></li>
+<li><a href="./33-storytime.html">فصل ۳۳ — داستان‌ها</a></li>
+<li><a href="./34-future.html">فصل ۳۴ — آینده تفسیرپذیری</a></li>
+</ul>
+<h3 id="پیوستها"><a class="header" href="#پیوستها">پیوست‌ها</a></h3>
+<ul>
+<li><a href="./appendix-A-ml-terms.html">پیوست الف — اصطلاحات یادگیری ماشین</a></li>
+<li><a href="./appendix-B-math.html">پیوست ب — اصطلاحات ریاضی</a></li>
+<li><a href="./appendix-C-packages.html">پیوست ج — بسته‌های R</a></li>
+</ul>
 
                     </main>
 
@@ -222,22 +299,6 @@
         <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
         <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
         <script>
