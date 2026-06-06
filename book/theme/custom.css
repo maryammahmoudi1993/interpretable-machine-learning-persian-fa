@@ -381,6 +381,18 @@ body:has(.cover-container) #mdbook-content::before {
 }
 
 /* ─── Responsive ─── */
+@media (max-width: 1080px) {
+  #mdbook-content {
+    padding: 20px 24px;
+    margin: 12px 12px;
+    border-radius: 6px;
+  }
+
+  #mdbook-content::before {
+    right: 32px;
+  }
+}
+
 @media (max-width: 768px) {
   .cover-container {
     flex-direction: column;
@@ -396,6 +408,63 @@ body:has(.cover-container) #mdbook-content::before {
   #mdbook-content {
     padding: 16px;
     margin: 8px 8px;
+    line-height: 28px;
+  }
+
+  #mdbook-content {
+    background-image: repeating-linear-gradient(
+      transparent,
+      transparent 27px,
+      var(--line-color) 27px,
+      var(--line-color) 28px
+    );
+    background-size: 100% 28px;
+  }
+
+  #mdbook-content::before {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  #mdbook-content {
+    padding: 12px 10px;
+    margin: 4px 4px;
+    line-height: 26px;
+  }
+
+  #mdbook-content {
+    background-image: repeating-linear-gradient(
+      transparent,
+      transparent 25px,
+      var(--line-color) 25px,
+      var(--line-color) 26px
+    );
+    background-size: 100% 26px;
+  }
+
+  .content table {
+    font-size: 13px;
+  }
+
+  .content h1 {
+    font-size: 20px;
+  }
+
+  .content h2 {
+    font-size: 17px;
+  }
+
+  .content h3 {
+    font-size: 15px;
+  }
+}
+
+/* ─── Mobile sidebar: keep content in place when toggled ─── */
+@media only screen and (max-width: 1080px) {
+  #mdbook-sidebar-toggle-anchor:checked ~ .page-wrapper,
+  [dir=rtl] #mdbook-sidebar-toggle-anchor:checked ~ .page-wrapper {
+    transform: none !important;
   }
 }
 
