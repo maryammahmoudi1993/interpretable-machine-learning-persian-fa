@@ -44,3 +44,4 @@
 [پیوست الف: اصطلاحات یادگیری ماشین](chapters/appendix-A-ml-terms.md)
 [پیوست ب: اصطلاحات ریاضی](chapters/appendix-B-math.md)
 [پیوست ج: بسته‌های R](chapters/appendix-C-packages.md)
+[پیوست د: منابع](chapters/appendix-D-references.md)
