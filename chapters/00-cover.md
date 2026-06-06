@@ -7,7 +7,7 @@
   <div class="cover-left">
     <div class="avatar-circle" id="avatarCircle">
       <img id="avatarImage" src="https://github.com/maryammahmoudi1993.png" alt="مریم محمودی">
-      <div class="avatar-placeholder">عکس خود را اینجا بکشید</div>
+      <div class="avatar-placeholder"></div>
     </div>
     <div class="avatar-label">مریم محمودی</div>
   </div>
