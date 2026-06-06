@@ -1,40 +1,49 @@
-# یادگیری ماشین قابل تفسیر
+<div class="cover-title">
+  <h1>یادگیری ماشین قابل تفسیر</h1>
+  <h2>راهنمایی برای قابل توضیح کردن مدل‌های جعبه سیاه</h2>
+</div>
 
-## راهنمایی برای قابل توضیح کردن مدل‌های جعبه سیاه
-
----
-
-<div dir="rtl" align="center">
-
-**نویسنده اصلی**
-
-# Christoph Molnar
-
----
-
-**ترجمه فارسی**
-
-# مریم محمودی
-
----
-
-ویرایش سوم
-
----
-
-*کتاب اصلی به صورت رایگان در دسترس است:*  
-[https://christophm.github.io/interpretable-ml-book/](https://christophm.github.io/interpretable-ml-book/)
-
----
-
-مجوز: [Creative Commons BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
-
-تمام حقوق معنوی اثر متعلق به نویسنده اصلی **Christoph Molnar** است.  
-این ترجمه توسط **مریم محمودی** با هدف دسترسی آزاد جامعه فارسی‌زبان به منابع یادگیری ماشین تهیه شده است.
-
+<div class="cover-container" dir="rtl">
+  <div class="cover-left">
+    <div class="avatar-circle" id="avatarCircle">
+      <img id="avatarImage" src="https://github.com/maryammahmoudi1993.png" alt="مریم محمودی">
+      <div class="avatar-placeholder"></div>
+    </div>
+    <div class="avatar-label">مریم محمودی</div>
+  </div>
+  <div class="cover-right">
+    <table class="metadata-table">
+      <tr>
+        <th>عنوان اصلی</th>
+        <td>Interpretable Machine Learning — A Guide for Making Black Box Models Explainable</td>
+      </tr>
+      <tr>
+        <th>نویسنده</th>
+        <td>Christoph Molnar</td>
+      </tr>
+      <tr>
+        <th>مترجم</th>
+        <td>مریم محمودی</td>
+      </tr>
+      <tr>
+        <th>ویرایش</th>
+        <td>سوم (3rd Edition)</td>
+      </tr>
+      <tr>
+        <th>مجوز</th>
+        <td><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0</a></td>
+      </tr>
+      <tr>
+        <th>کتاب اصلی</th>
+        <td><a href="https://christophm.github.io/interpretable-ml-book/" target="_blank">christophm.github.io/interpretable-ml-book</a></td>
+      </tr>
+    </table>
+  </div>
 </div>
 
 ---
+
+<div class="cover-toc">
 
 ## فهرست مطالب
 
@@ -88,3 +97,6 @@
 - [پیوست الف — اصطلاحات یادگیری ماشین](./appendix-A-ml-terms.md)
 - [پیوست ب — اصطلاحات ریاضی](./appendix-B-math.md)
 - [پیوست ج — بسته‌های R](./appendix-C-packages.md)
+- [پیوست د — منابع](./appendix-D-references.md)
+
+</div>

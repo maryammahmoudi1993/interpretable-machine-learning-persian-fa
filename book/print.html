@@ -38,6 +38,7 @@
         <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="src/theme/custom-fcb0f5e7.css">
 
         <!-- MathJax -->
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -47,7 +48,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-f8413eb3.js";
+            window.path_to_searchindex_js = "searchindex-20afe065.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-e37baa1b.js"></script>
@@ -189,25 +190,80 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="یادگیری-ماشین-قابل-تفسیر"><a class="header" href="#یادگیری-ماشین-قابل-تفسیر">یادگیری ماشین قابل تفسیر</a></h1>
-<h2 id="راهنمایی-برای-قابل-توضیح-کردن-مدلهای-جعبه-سیاه"><a class="header" href="#راهنمایی-برای-قابل-توضیح-کردن-مدلهای-جعبه-سیاه">راهنمایی برای قابل توضیح کردن مدل‌های جعبه سیاه</a></h2>
-<hr>
-<div dir="rtl" align="center">
-<p><strong>نویسنده اصلی</strong></p>
-<h1 id="christoph-molnar"><a class="header" href="#christoph-molnar">Christoph Molnar</a></h1>
-<hr>
-<p><strong>ترجمه فارسی</strong></p>
-<h1 id="مریم-محمودی"><a class="header" href="#مریم-محمودی">مریم محمودی</a></h1>
-<hr>
-<p>ویرایش سوم</p>
-<hr>
-<p><em>کتاب اصلی به صورت رایگان در دسترس است:</em><br><a href="https://christophm.github.io/interpretable-ml-book/">https://christophm.github.io/interpretable-ml-book/</a></p>
-<hr>
-<p>مجوز: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0</a></p>
-<p>تمام حقوق معنوی اثر متعلق به نویسنده اصلی <strong>Christoph Molnar</strong> است.<br>این ترجمه توسط <strong>مریم محمودی</strong> با هدف دسترسی آزاد جامعه فارسی‌زبان به منابع یادگیری ماشین تهیه شده است.</p>
+                        <h1 id="صفحه-جلد"><a href="#صفحه-جلد" class="header">صفحه جلد</a></h1>
+<div class="cover-title">
+  
+<h1>یادگیری ماشین قابل تفسیر</h1>
+
+  
+<h2>راهنمایی برای قابل توضیح کردن مدل‌های جعبه سیاه</h2>
+
+</div>
+
+<div class="cover-container" dir="rtl">
+  
+<div class="cover-left">
+    
+<div class="avatar-circle" id="avatarCircle">
+      <img id="avatarImage" src="https://github.com/maryammahmoudi1993.png" alt="مریم محمودی">
+      
+<div class="avatar-placeholder"></div>
+
+    </div>
+
+    
+<div class="avatar-label">مریم محمودی</div>
+
+  </div>
+
+  
+<div class="cover-right">
+    
+<table class="metadata-table">
+      
+<tr>
+        <th>عنوان اصلی</th>
+        <td>Interpretable Machine Learning — A Guide for Making Black Box Models Explainable</td>
+      </tr>
+
+      
+<tr>
+        <th>نویسنده</th>
+        <td>Christoph Molnar</td>
+      </tr>
+
+      
+<tr>
+        <th>مترجم</th>
+        <td>مریم محمودی</td>
+      </tr>
+
+      
+<tr>
+        <th>ویرایش</th>
+        <td>سوم (3rd Edition)</td>
+      </tr>
+
+      
+<tr>
+        <th>مجوز</th>
+        <td><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0</a></td>
+      </tr>
+
+      
+<tr>
+        <th>کتاب اصلی</th>
+        <td><a href="https://christophm.github.io/interpretable-ml-book/" target="_blank">christophm.github.io/interpretable-ml-book</a></td>
+      </tr>
+
+    </table>
+
+  </div>
+
 </div>
 
 <hr>
+<div class="cover-toc">
 <h2 id="فهرست-مطالب"><a class="header" href="#فهرست-مطالب">فهرست مطالب</a></h2>
 <h3 id="مقدمه-و-مبانی"><a class="header" href="#مقدمه-و-مبانی">مقدمه و مبانی</a></h3>
 <ul>
@@ -266,7 +322,10 @@
 <li><a href="#پیوست-الف--اصطلاحات-یادگیری-ماشین">پیوست الف — اصطلاحات یادگیری ماشین</a></li>
 <li><a href="#پیوست-ب--اصطلاحات-ریاضی">پیوست ب — اصطلاحات ریاضی</a></li>
 <li><a href="#پیوست-ج--بستههای-r-مورد-استفاده">پیوست ج — بسته‌های R</a></li>
+<li><a href="#پیوست-د--منابع">پیوست د — منابع</a></li>
 </ul>
+</div>
+
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="درباره-کتاب"><a class="header" href="#درباره-کتاب">درباره کتاب</a></h1>
 <blockquote>
@@ -4209,6 +4268,7 @@ I_{up,loss}(\mathbf{z}, \mathbf{z}<em>{test}) &amp; = \left.\frac{d L(\mathbf{z}
         <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
+        <script src="src/theme/custom-53238dd6.js"></script>
 
         <script>
         window.addEventListener('load', function() {
