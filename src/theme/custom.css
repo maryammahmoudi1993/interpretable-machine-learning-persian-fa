@@ -314,7 +314,7 @@ body:has(.cover-container) #mdbook-content::before {
 }
 
 .avatar-placeholder::before {
-  content: "📷";
+  content: "";
   font-size: 32px;
 }
 
