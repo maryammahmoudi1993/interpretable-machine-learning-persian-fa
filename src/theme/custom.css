@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap");
+
 :root {
   --navy: #1A365D;
   --navy-light: #2B6CB0;
@@ -11,6 +13,8 @@
   --border: #E2E8F0;
   --white: #FFFFFF;
   --shadow: 0 1px 3px rgba(0,0,0,0.08);
+  --line-color: rgba(180, 200, 220, 0.4);
+  --margin-line: rgba(200, 100, 100, 0.3);
 }
 
 html {
@@ -20,6 +24,19 @@ html {
 body {
   background-color: var(--cream);
   color: var(--text-dark);
+  font-family: "Noto Naskh Arabic", serif;
+}
+
+.content {
+  font-family: "Noto Naskh Arabic", serif;
+}
+
+.content * {
+  font-family: "Noto Naskh Arabic", serif;
+}
+
+.content code, .content pre, .content tt {
+  font-family: "Cascadia Code", "Fira Code", "Consolas", monospace !important;
 }
 
 /* ─── Sidebar ─── */
@@ -125,13 +142,37 @@ body {
   background: var(--cream-dark) !important;
 }
 
-/* ─── Content area ─── */
+/* ─── Content area (notebook ruled lines) ─── */
 #mdbook-content {
+  position: relative;
   background: var(--white);
   padding: 32px 48px;
   border-radius: 8px;
   box-shadow: var(--shadow);
   margin: 16px 24px;
+}
+
+#mdbook-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 60px;
+  bottom: 0;
+  width: 2px;
+  background: var(--margin-line);
+  pointer-events: none;
+}
+
+#mdbook-content {
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 31px,
+    var(--line-color) 31px,
+    var(--line-color) 32px
+  );
+  background-size: 100% 32px;
+  background-position: 0 0;
+  line-height: 32px;
 }
 
 .page {
@@ -200,6 +241,16 @@ body {
   padding: 12px 16px;
   margin: 16px 0;
   border-radius: 0 6px 6px 0;
+}
+
+/* ─── Cover page (no ruled lines) ─── */
+body:has(.cover-container) #mdbook-content {
+  background-image: none !important;
+  background: var(--white) !important;
+}
+
+body:has(.cover-container) #mdbook-content::before {
+  display: none !important;
 }
 
 /* ─── Cover page ─── */
