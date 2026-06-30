@@ -42,6 +42,8 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Build with mdBook
         run: mdbook build
+      - name: Fix index.html links
+        run: python3 scripts/fix-index-links.py
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
