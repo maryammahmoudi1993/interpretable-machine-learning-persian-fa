@@ -47,7 +47,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c4522d60.js";
+            window.path_to_searchindex_js = "../searchindex-1e4d1623.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-e37baa1b.js"></script>
@@ -224,7 +224,7 @@
 <p>گام از رگرسیون خطی به رگرسیون لجستیک مستقیم است. در رگرسیون خطی، رابطه بین خروجی و ویژگی‌ها را با یک معادله خطی مدل می‌کردیم:</p>
 <p>$$\hat{y}^{(i)} = \beta_0 + \beta_1 x^{(i)}_1 + \ldots + \beta_p x^{(i)}_p$$</p>
 <p>برای دسته‌بندی، به احتمال‌هایی بین ۰ و ۱ نیاز داریم. پس طرف راست معادله را درون تابع لجستیک قرار می‌دهیم تا خروجی همیشه در این بازه بماند:</p>
-<p>$$\mathbb{P}(Y^{(i)}=1) = \text{logistic}!\left(x^{(i)\top} \boldsymbol{\beta}\right) = \frac{1}{1 + \exp!\left(-\left(\beta_0 + \beta_1 x^{(i)}_1 + \ldots + \beta_p x^{(i)}_p\right)\right)}$$</p>
+<p>$$\mathbb{P}(Y^{(i)}=1) = \text{logistic}\!\left(x^{(i)\top} \boldsymbol{\beta}\right) = \frac{1}{1 + \exp\!\left(-\left(\beta_0 + \beta_1 x^{(i)}_1 + \ldots + \beta_p x^{(i)}_p\right)\right)}$$</p>
 <p>در این فرمول، $\mathbb{P}(Y^{(i)}=1)$ احتمال تعلق نمونه $i$ به دسته ۱ است.</p>
 <p>مدل با <strong>بیشینه‌سازی درست‌نمایی</strong> (Maximum Likelihood Estimation) برازش می‌شود — یعنی ضرایبی پیدا می‌شوند که احتمال مشاهده داده‌های آموزشی را بیشینه کنند. برخلاف رگرسیون خطی، راه‌حل بسته (closed-form) وجود ندارد و از روش‌های بهینه‌سازی تکراری مانند گرادیان نزولی استفاده می‌شود.</p>
 <p>برای نمونه‌های قدیمی مثال تومور: به جای خط مستقیم ناپایدار رگرسیون خطی، منحنی S-شکل رگرسیون لجستیک برازش بسیار بهتری دارد و با اضافه شدن نقاط دور، تغییر نمی‌کند:</p>
@@ -234,15 +234,15 @@
 <p>تفسیر وزن‌ها در رگرسیون لجستیک از رگرسیون خطی پیچیده‌تر است، زیرا وزن‌ها دیگر به‌طور خطی روی احتمال تأثیر نمی‌گذارند. برای تفسیر، باید معادله را بازنویسی کنیم تا فقط ترکیب خطی در سمت راست باقی بماند.</p>
 <h3 id="لگاریتم-شانس-log-odds"><a class="header" href="#لگاریتم-شانس-log-odds">لگاریتم شانس (Log-Odds)</a></h3>
 <p>نسبت $\frac{\mathbb{P}(Y=1)}{\mathbb{P}(Y=0)}$ را <strong>شانس</strong> (odds) می‌نامند: احتمال وقوع رویداد تقسیم بر احتمال عدم وقوع آن. اگر لگاریتم طبیعی این نسبت را بگیریم، به <strong>لگاریتم شانس</strong> (log-odds یا logit) می‌رسیم:</p>
-<p>$$\ln!\left(\frac{\mathbb{P}(Y=1)}{1-\mathbb{P}(Y=1)}\right) = \ln!\left(\frac{\mathbb{P}(Y=1)}{\mathbb{P}(Y=0)}\right) = \beta_0 + \beta_1 x_1 + \ldots + \beta_p x_p$$</p>
+<p>$$\ln\!\left(\frac{\mathbb{P}(Y=1)}{1-\mathbb{P}(Y=1)}\right) = \ln\!\left(\frac{\mathbb{P}(Y=1)}{\mathbb{P}(Y=0)}\right) = \beta_0 + \beta_1 x_1 + \ldots + \beta_p x_p$$</p>
 <p>این رابطه نشان می‌دهد که <strong>رگرسیون لجستیک در فضای لگاریتم شانس یک مدل خطی است.</strong> هر ضریب $\beta_j$ اثر خطی مستقیم بر لگاریتم شانس دارد.</p>
 <h3 id="نسبت-شانس-odds-ratio"><a class="header" href="#نسبت-شانس-odds-ratio">نسبت شانس (Odds Ratio)</a></h3>
 <p>برای تفسیر عملی‌تر، می‌توانیم از هر دو طرف معادله تابع نمایی بگیریم تا <strong>شانس</strong> را به دست آوریم:</p>
-<p>$$\frac{\mathbb{P}(Y=1)}{1 - \mathbb{P}(Y = 1)} = \text{odds} = \exp!\left(\beta_0 + \beta_1 x_1 + \ldots + \beta_p x_p\right)$$</p>
+<p>$$\frac{\mathbb{P}(Y=1)}{1 - \mathbb{P}(Y = 1)} = \text{odds} = \exp\!\left(\beta_0 + \beta_1 x_1 + \ldots + \beta_p x_p\right)$$</p>
 <p>حالا می‌توانیم محاسبه کنیم که با افزایش یک واحد در ویژگی $x_j$، شانس چقدر تغییر می‌کند. نسبت شانس‌ها قبل و بعد از این تغییر:</p>
-<p>$$\frac{\text{odds}<em>{x_j+1}}{\text{odds}</em>{x_j}} = \frac{\exp!\left(\beta_0 + \cdots + \beta_j(x_j+1) + \cdots + \beta_p x_p\right)}{\exp!\left(\beta_0 + \cdots + \beta_j x_j + \cdots + \beta_p x_p\right)}$$</p>
+<p>$$\frac{\text{odds}_{x_j+1}}{\text{odds}_{x_j}} = \frac{\exp\!\left(\beta_0 + \cdots + \beta_j(x_j+1) + \cdots + \beta_p x_p\right)}{\exp\!\left(\beta_0 + \cdots + \beta_j x_j + \cdots + \beta_p x_p\right)}$$</p>
 <p>با استفاده از قاعده $\frac{\exp(a)}{\exp(b)} = \exp(a - b)$، جملات مشترک حذف می‌شوند:</p>
-<p>$$\frac{\text{odds}<em>{x_j+1}}{\text{odds}</em>{x_j}} = \exp!\left(\beta_j\right)$$</p>
+<p>$$\frac{\text{odds}_{x_j+1}}{\text{odds}_{x_j}} = \exp\!\left(\beta_j\right)$$</p>
 <blockquote>
 <p><strong>نتیجه کلیدی:</strong> افزایش یک واحد در ویژگی $x_j$، شانس را به‌صورت <strong>ضربی</strong> به اندازه $\exp(\beta_j)$ تغییر می‌دهد — نه جمعی.</p>
 </blockquote>
