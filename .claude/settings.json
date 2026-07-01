@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git pull *)",
+      "Bash(grep -E '\\\\\\\\\\\\\\\\|beta|hat|sum|frac|min|cases|effect')",
+      "Bash(grep -n 'cases\\\\|x_\\\\\\\\ell\\\\|frac{1}{n}' book/chapters/06-linear-regression.html)",
+      "Bash(grep -n '\\\\\\\\\\\\\\\\\\\\|\\\\\\\\!' src/chapters/06-linear-regression.md)",
+      "Bash(python3 -)",
+      "Bash(python scripts/fix-ch06-math.py)",
+      "Bash(python scripts/fix-index-links.py)",
+      "WebFetch(domain:christophm.github.io)",
+      "Bash(git commit -m ' *)"
+    ]
+  }
+}
