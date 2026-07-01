@@ -47,7 +47,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c4522d60.js";
+            window.path_to_searchindex_js = "../searchindex-1e4d1623.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-e37baa1b.js"></script>
@@ -221,7 +221,7 @@
 <p>ایده اصلی GLM این است: مجموع وزن‌دار ویژگی‌ها را نگه داریم، اما اجازه دهیم توزیع خروجی غیرگاوسی باشد و میانگین مورد انتظار این توزیع را از طریق یک <strong>تابع پیوند</strong> (link function) به مجموع وزن‌دار متصل کنیم.</p>
 <h3 id="فرمول-glm"><a class="header" href="#فرمول-glm">فرمول GLM</a></h3>
 <p>GLM رابطه زیر را مدل می‌کند:</p>
-<p>$$g!\left(\mathbb{E}[Y \mid \mathbf{x}]\right) = \beta_0 + \beta_1 x_1 + \ldots + \beta_p x_p = \mathbf{x}^T \boldsymbol{\beta}$$</p>
+<p>$$g\!\left(\mathbb{E}[Y \mid \mathbf{x}]\right) = \beta_0 + \beta_1 x_1 + \ldots + \beta_p x_p = \mathbf{x}^T \boldsymbol{\beta}$$</p>
 <p>که در آن $g$ تابع پیوند است. هر GLM از سه مؤلفه تشکیل شده:</p>
 <ol>
 <li><strong>تابع پیوند</strong> $g$: میانگین توزیع را به پیش‌بینی خطی متصل می‌کند.</li>
@@ -232,12 +232,12 @@
 <p><strong>مدل خطی کلاسیک</strong> حالت خاصی از GLM است که توزیع گاوسی و تابع پیوند همانی (identity) دارد — یعنی $g(x) = x$.</p>
 <h3 id="رگرسیون-لجستیک-بهعنوان-glm"><a class="header" href="#رگرسیون-لجستیک-بهعنوان-glm">رگرسیون لجستیک به‌عنوان GLM</a></h3>
 <p>رگرسیون لجستیک نیز یک GLM است: توزیع برنولی و تابع پیوند لاجیت (logit). رابطه آن:</p>
-<p>$$\mathbf{x}^T\boldsymbol{\beta} = \ln!\left(\frac{\mathbb{P}(Y=1\mid\mathbf{x})}{1-\mathbb{P}(Y=1\mid\mathbf{x})}\right)$$</p>
+<p>$$\mathbf{x}^T\boldsymbol{\beta} = \ln\!\left(\frac{\mathbb{P}(Y=1\mid\mathbf{x})}{1-\mathbb{P}(Y=1\mid\mathbf{x})}\right)$$</p>
 <p>که با معکوس‌گرفتن به فرمول آشنای رگرسیون لجستیک می‌رسیم:</p>
 <p>$$\mathbb{P}(Y=1) = \frac{1}{1+\exp(-\mathbf{x}^T\boldsymbol{\beta})}$$</p>
 <h3 id="glm-پواسون-برای-دادههای-شمارشی"><a class="header" href="#glm-پواسون-برای-دادههای-شمارشی">GLM پواسون برای داده‌های شمارشی</a></h3>
 <p>اگر خروجی یک <strong>شمارش</strong> باشد (عدد صحیح غیرمنفی)، توزیع پواسون و لگاریتم طبیعی به‌عنوان تابع پیوند انتخاب مناسبی هستند:</p>
-<p>$$\ln!\left(\mathbb{E}[Y\mid\mathbf{x}]\right) = \mathbf{x}^T\boldsymbol{\beta}$$</p>
+<p>$$\ln\!\left(\mathbb{E}[Y\mid\mathbf{x}]\right) = \mathbf{x}^T\boldsymbol{\beta}$$</p>
 <h3 id="مثال-پیشبینی-مصرف-قهوه"><a class="header" href="#مثال-پیشبینی-مصرف-قهوه">مثال: پیش‌بینی مصرف قهوه</a></h3>
 <p>فرض کنید داده‌ای از رفتار روزانه نوشیدن قهوه جمع‌آوری شده است. ویژگی‌ها عبارتند از: سطح استرس (۱ تا ۱۰)، کیفیت خواب شب قبل (۱ تا ۱۰)، و اینکه آیا آن روز روز کاری بوده یا نه. هدف پیش‌بینی تعداد فنجان‌های قهوه است.</p>
 <p><img src="https://christophm.github.io/interpretable-ml-book/extend-lm_files/figure-html/fig-poisson-data-1.png" alt="شکل ۸.۲"></p>
@@ -250,9 +250,9 @@
 <p><strong>شکل ۸.۴:</strong> GLM پواسون برای پیش‌بینی تعداد فنجان‌های قهوه: تمام پیش‌بینی‌ها غیرمنفی هستند.</p>
 <h3 id="تفسیر-وزنهای-glm"><a class="header" href="#تفسیر-وزنهای-glm">تفسیر وزن‌های GLM</a></h3>
 <p>در GLM پواسون با تابع پیوند لگاریتمی، رابطه زیر برقرار است:</p>
-<p>$$\ln!\left(\mathbb{E}[\text{coffee}\mid\text{str, slp, wrk}]\right) = \beta_0 + \beta_\text{str} x_\text{str} + \beta_\text{slp} x_\text{slp} + \beta_\text{wrk} x_\text{wrk}$$</p>
+<p>$$\ln\!\left(\mathbb{E}[\text{coffee}\mid\text{str, slp, wrk}]\right) = \beta_0 + \beta_\text{str} x_\text{str} + \beta_\text{slp} x_\text{slp} + \beta_\text{wrk} x_\text{wrk}$$</p>
 <p>با معکوس‌گرفتن تابع پیوند (exp):</p>
-<p>$$\mathbb{E}[\text{coffee}\mid\text{str, slp, wrk}] = \exp!\left(\beta_0 + \beta_\text{str} x_\text{str} + \beta_\text{slp} x_\text{slp} + \beta_\text{wrk} x_\text{wrk}\right)$$</p>
+<p>$$\mathbb{E}[\text{coffee}\mid\text{str, slp, wrk}] = \exp\!\left(\beta_0 + \beta_\text{str} x_\text{str} + \beta_\text{slp} x_\text{slp} + \beta_\text{wrk} x_\text{wrk}\right)$$</p>
 <p>چون همه وزن‌ها درون تابع نمایی هستند، <strong>تفسیر ضربی است، نه جمعی</strong>: $\exp(a+b) = \exp(a) \cdot \exp(b)$.</p>
 <p><strong>جدول ۸.۱:</strong> وزن‌های برآوردشده و $\exp(\text{وزن})$ برای GLM پواسون داده‌های قهوه.</p>
 <div class="table-wrapper">
@@ -397,7 +397,7 @@
 <p>اشکال این روش: نیاز به داده بیشتر دارد، احتمال بیش‌برازش بالاتر است، و تعیین تعداد و مرزهای بازه‌ها دشوار و اغلب دلخواه است. این روش را تنها در صورتی توصیه می‌کنم که دلیل قوی برای استفاده از آن وجود داشته باشد.</p>
 <h3 id="۳-مدلهای-جمعی-تعمیمیافته-gams"><a class="header" href="#۳-مدلهای-جمعی-تعمیمیافته-gams">۳. مدل‌های جمعی تعمیم‌یافته (GAMs)</a></h3>
 <p>چرا به مدل خطی اجازه ندهیم روابط غیرخطی را خودش یاد بگیرد؟ این انگیزه اصلی <strong>GAMs</strong> است. GAM قید خطی بودن را حذف می‌کند و فرض می‌کند خروجی با مجموعی از <strong>توابع دلخواه</strong> هر ویژگی قابل مدل‌سازی است:</p>
-<p>$$g!\left[\mathbb{E}(Y \mid X = \mathbf{x})\right] = \beta_0 + f_1(x_1) + f_2(x_2) + \ldots + f_p(x_p)$$</p>
+<p>$$g\!\left[\mathbb{E}(Y \mid X = \mathbf{x})\right] = \beta_0 + f_1(x_1) + f_2(x_2) + \ldots + f_p(x_p)$$</p>
 <p>این فرمول شبیه GLM است با این تفاوت که جمله خطی $\beta_j x_j$ با تابع انعطاف‌پذیر $f_j(x_j)$ جایگزین شده. مدل همچنان جمعی است — مجموع اثرات تک‌تک ویژگی‌هاست — اما هر ویژگی می‌تواند اثر غیرخطی داشته باشد. اثرات خطی نیز در این چارچوب جا می‌گیرند: کافی است $f_j$ را محدود به شکل $\beta_j x_j$ کنیم.</p>
 <h3 id="اسپلاینها-ابزار-یادگیری-gam"><a class="header" href="#اسپلاینها-ابزار-یادگیری-gam">اسپلاین‌ها: ابزار یادگیری GAM</a></h3>
 <p>سؤال اساسی این است که چگونه توابع $f_j$ غیرخطی یاد گرفته می‌شوند. پاسخ <strong>اسپلاین‌ها</strong> هستند — توابعی که از ترکیب توابع پایه ساده‌تر ساخته می‌شوند. اسپلاین‌ها مثل لگوهایی هستند که با کنار هم چیدن آن‌ها شکل‌های پیچیده‌تری می‌سازیم.</p>

@@ -13,7 +13,7 @@
 
 مدل رگرسیون خطی را به یاد بیاورید:
 
-$$\hat{f}(\mathbf{x}) = \beta_0 + \beta_1 x_1 + \ldots + \beta_p x_p + \epsilon$$
+$$\hat{f}(\mathbf{x}) = \beta\_0 + \beta\_1 x\_1 + \ldots + \beta\_p x\_p + \epsilon$$
 
 این مدل فرض می‌کند خروجی از توزیع گاوسی پیروی می‌کند، اثرات ویژگی‌ها جمعی هستند (بدون تعامل)، و رابطه خطی است. این سه فرض را می‌توان به شکل سه مشکل زیر بیان کرد:
 
@@ -55,7 +55,7 @@ $$\hat{f}(\mathbf{x}) = \beta_0 + \beta_1 x_1 + \ldots + \beta_p x_p + \epsilon$
 
 GLM رابطه زیر را مدل می‌کند:
 
-$$g\!\left(\mathbb{E}[Y \mid \mathbf{x}]\right) = \beta_0 + \beta_1 x_1 + \ldots + \beta_p x_p = \mathbf{x}^T \boldsymbol{\beta}$$
+$$g\\\!\left(\mathbb{E}[Y \mid \mathbf{x}]\right) = \beta\_0 + \beta\_1 x\_1 + \ldots + \beta\_p x\_p = \mathbf{x}^T \boldsymbol{\beta}$$
 
 که در آن $g$ تابع پیوند است. هر GLM از سه مؤلفه تشکیل شده:
 1. **تابع پیوند** $g$: میانگین توزیع را به پیش‌بینی خطی متصل می‌کند.
@@ -70,7 +70,7 @@ $$g\!\left(\mathbb{E}[Y \mid \mathbf{x}]\right) = \beta_0 + \beta_1 x_1 + \ldots
 
 رگرسیون لجستیک نیز یک GLM است: توزیع برنولی و تابع پیوند لاجیت (logit). رابطه آن:
 
-$$\mathbf{x}^T\boldsymbol{\beta} = \ln\!\left(\frac{\mathbb{P}(Y=1\mid\mathbf{x})}{1-\mathbb{P}(Y=1\mid\mathbf{x})}\right)$$
+$$\mathbf{x}^T\boldsymbol{\beta} = \ln\\\!\left(\frac{\mathbb{P}(Y=1\mid\mathbf{x})}{1-\mathbb{P}(Y=1\mid\mathbf{x})}\right)$$
 
 که با معکوس‌گرفتن به فرمول آشنای رگرسیون لجستیک می‌رسیم:
 
@@ -80,7 +80,7 @@ $$\mathbb{P}(Y=1) = \frac{1}{1+\exp(-\mathbf{x}^T\boldsymbol{\beta})}$$
 
 اگر خروجی یک **شمارش** باشد (عدد صحیح غیرمنفی)، توزیع پواسون و لگاریتم طبیعی به‌عنوان تابع پیوند انتخاب مناسبی هستند:
 
-$$\ln\!\left(\mathbb{E}[Y\mid\mathbf{x}]\right) = \mathbf{x}^T\boldsymbol{\beta}$$
+$$\ln\\\!\left(\mathbb{E}[Y\mid\mathbf{x}]\right) = \mathbf{x}^T\boldsymbol{\beta}$$
 
 ### مثال: پیش‌بینی مصرف قهوه
 
@@ -106,11 +106,11 @@ $$\ln\!\left(\mathbb{E}[Y\mid\mathbf{x}]\right) = \mathbf{x}^T\boldsymbol{\beta}
 
 در GLM پواسون با تابع پیوند لگاریتمی، رابطه زیر برقرار است:
 
-$$\ln\!\left(\mathbb{E}[\text{coffee}\mid\text{str, slp, wrk}]\right) = \beta_0 + \beta_\text{str} x_\text{str} + \beta_\text{slp} x_\text{slp} + \beta_\text{wrk} x_\text{wrk}$$
+$$\ln\\\!\left(\mathbb{E}[\text{coffee}\mid\text{str, slp, wrk}]\right) = \beta\_0 + \beta\_\text{str} x\_\text{str} + \beta\_\text{slp} x\_\text{slp} + \beta\_\text{wrk} x\_\text{wrk}$$
 
 با معکوس‌گرفتن تابع پیوند (exp):
 
-$$\mathbb{E}[\text{coffee}\mid\text{str, slp, wrk}] = \exp\!\left(\beta_0 + \beta_\text{str} x_\text{str} + \beta_\text{slp} x_\text{slp} + \beta_\text{wrk} x_\text{wrk}\right)$$
+$$\mathbb{E}[\text{coffee}\mid\text{str, slp, wrk}] = \exp\\\!\left(\beta\_0 + \beta\_\text{str} x\_\text{str} + \beta\_\text{slp} x\_\text{slp} + \beta\_\text{wrk} x\_\text{wrk}\right)$$
 
 چون همه وزن‌ها درون تابع نمایی هستند، **تفسیر ضربی است، نه جمعی**: $\exp(a+b) = \exp(a) \cdot \exp(b)$.
 
@@ -253,13 +253,13 @@ $$\mathbb{E}[\text{coffee}\mid\text{str, slp, wrk}] = \exp\!\left(\beta_0 + \bet
 
 چرا به مدل خطی اجازه ندهیم روابط غیرخطی را خودش یاد بگیرد؟ این انگیزه اصلی **GAMs** است. GAM قید خطی بودن را حذف می‌کند و فرض می‌کند خروجی با مجموعی از **توابع دلخواه** هر ویژگی قابل مدل‌سازی است:
 
-$$g\!\left[\mathbb{E}(Y \mid X = \mathbf{x})\right] = \beta_0 + f_1(x_1) + f_2(x_2) + \ldots + f_p(x_p)$$
+$$g\\\!\left[\mathbb{E}(Y \mid X = \mathbf{x})\right] = \beta\_0 + f\_1(x\_1) + f\_2(x\_2) + \ldots + f\_p(x\_p)$$
 
-این فرمول شبیه GLM است با این تفاوت که جمله خطی $\beta_j x_j$ با تابع انعطاف‌پذیر $f_j(x_j)$ جایگزین شده. مدل همچنان جمعی است — مجموع اثرات تک‌تک ویژگی‌هاست — اما هر ویژگی می‌تواند اثر غیرخطی داشته باشد. اثرات خطی نیز در این چارچوب جا می‌گیرند: کافی است $f_j$ را محدود به شکل $\beta_j x_j$ کنیم.
+این فرمول شبیه GLM است با این تفاوت که جمله خطی $\beta\_j x\_j$ با تابع انعطاف‌پذیر $f\_j(x\_j)$ جایگزین شده. مدل همچنان جمعی است — مجموع اثرات تک‌تک ویژگی‌هاست — اما هر ویژگی می‌تواند اثر غیرخطی داشته باشد. اثرات خطی نیز در این چارچوب جا می‌گیرند: کافی است $f\_j$ را محدود به شکل $\beta\_j x\_j$ کنیم.
 
 ### اسپلاین‌ها: ابزار یادگیری GAM
 
-سؤال اساسی این است که چگونه توابع $f_j$ غیرخطی یاد گرفته می‌شوند. پاسخ **اسپلاین‌ها** هستند — توابعی که از ترکیب توابع پایه ساده‌تر ساخته می‌شوند. اسپلاین‌ها مثل لگوهایی هستند که با کنار هم چیدن آن‌ها شکل‌های پیچیده‌تری می‌سازیم.
+سؤال اساسی این است که چگونه توابع $f\_j$ غیرخطی یاد گرفته می‌شوند. پاسخ **اسپلاین‌ها** هستند — توابعی که از ترکیب توابع پایه ساده‌تر ساخته می‌شوند. اسپلاین‌ها مثل لگوهایی هستند که با کنار هم چیدن آن‌ها شکل‌های پیچیده‌تری می‌سازیم.
 
 برای مدل‌سازی دما با اسپلاین، ستون دما از داده حذف و با چند ستون جدید (توابع پایه اسپلاین) جایگزین می‌شود:
 

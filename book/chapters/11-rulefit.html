@@ -47,7 +47,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c4522d60.js";
+            window.path_to_searchindex_js = "../searchindex-1e4d1623.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-e37baa1b.js"></script>
@@ -233,8 +233,8 @@
 <h3 id="گام-۱-تولید-قوانین"><a class="header" href="#گام-۱-تولید-قوانین">گام ۱: تولید قوانین</a></h3>
 <p>RuleFit قوانین را با تجزیه درخت‌های تصمیم تولید می‌کند. هر مسیر به یک گره در درخت می‌تواند به یک قانون تصمیم تبدیل شود — تصمیم‌های دودویی با عملگر AND به هم زنجیر می‌شوند.</p>
 <p><strong>فرم ریاضی یک قانون:</strong></p>
-<p>$$r_m(\mathbf{x}) = \prod_{j \in \mathcal{T}<em>m} I!\left(x_j \in s</em>{jm}\right)$$</p>
-<p>که در آن $\mathcal{T}<em>m$ مجموعه ویژگی‌های مورد استفاده در درخت $m$ است و $s</em>{jm}$ زیرمجموعه مقادیر مجاز برای ویژگی $j$ در درخت $m$ است.</p>
+<p>$$r_m(\mathbf{x}) = \prod_{j \in \mathcal{T}_m} I\!\left(x_j \in s_{jm}\right)$$</p>
+<p>که در آن $\mathcal{T}_m$ مجموعه ویژگی‌های مورد استفاده در درخت $m$ است و $s_{jm}$ زیرمجموعه مقادیر مجاز برای ویژگی $j$ در درخت $m$ است.</p>
 <p>برای ویژگی‌های عددی، این زیرمجموعه‌ها به صورت بازه ظاهر می‌شوند:</p>
 <p>$$x_{s_{jm},\mathrm{lower}} &lt; x_j$$</p>
 <p>یا:</p>
@@ -258,7 +258,7 @@
 <p>$$l_j(x_j) = 0.4 \cdot \frac{l_j^<em>(x_j)}{\mathrm{std}(l_j^</em>(x_j))}$$</p>
 <p>عدد ثابت $0.4$ انحراف معیار میانگین قوانین با توزیع پوشش یکنواخت است.</p>
 <p><strong>مدل نهایی RuleFit:</strong></p>
-<p>$$\hat{f}(\mathbf{x}) = \hat{\beta}<em>0 + \sum</em>{k=1}^{K} \hat{\alpha}<em>k r_k(\mathbf{x}) + \sum</em>{j=1}^{p} \hat{\beta}_j l_j(x_j)$$</p>
+<p>$$\hat{f}(\mathbf{x}) = \hat{\beta}_0 + \sum_{k=1}^{K} \hat{\alpha}_k r_k(\mathbf{x}) + \sum_{j=1}^{p} \hat{\beta}_j l_j(x_j)$$</p>
 <p>که در آن:</p>
 <ul>
 <li>$\hat{\beta}_0$: عرض از مبدأ</li>
@@ -268,7 +268,7 @@
 <li>$l_j(x_j)$: جمله خطی ویژگی $j$ام</li>
 </ul>
 <p>پارامترها با بهینه‌سازی Lasso یاد گرفته می‌شوند:</p>
-<p>$$\arg\min_{\hat{\alpha}<em>{1:K},, \hat{\beta}</em>{0:p}} \sum_{i=1}^{n} L\left(y^{(i)}, \hat{f}(\mathbf{x}^{(i)})\right) + \lambda \cdot \left(\sum_{k=1}^{K} |\hat{\alpha}<em>k| + \sum</em>{j=1}^{p} |\hat{\beta}_j|\right)$$</p>
+<p>$$\arg\min_{\hat{\alpha}_{1:K},, \hat{\beta}_{0:p}} \sum_{i=1}^{n} L\left(y^{(i)}, \hat{f}(\mathbf{x}^{(i)})\right) + \lambda \cdot \left(\sum_{k=1}^{K} |\hat{\alpha}_k| + \sum_{j=1}^{p} |\hat{\beta}_j|\right)$$</p>
 <p>جریمه $L_1$ (Lasso) بسیاری از ضرایب را به صفر می‌رساند و مدل تنک تولید می‌کند.</p>
 <h3 id="گام-۳-اختیاری-اهمیت-ویژگی"><a class="header" href="#گام-۳-اختیاری-اهمیت-ویژگی">گام ۳ (اختیاری): اهمیت ویژگی</a></h3>
 <p>محاسبه اهمیت برای جملات خطی و قوانین تصمیم متفاوت است.</p>
@@ -281,7 +281,7 @@
 <p><strong>اهمیت کلی یک ویژگی</strong> با ترکیب اهمیت جمله خطی و سهم تمام قوانینی که آن ویژگی را دربرمی‌گیرند محاسبه می‌شود:</p>
 <p>$$J_j(x_j) = I_j(x_j) + \sum_{k \colon x_j \in r_k} \frac{I_k(r_k)}{m_k}$$</p>
 <p>که $m_k$ تعداد ویژگی‌های موجود در قانون $k$ام است. اهمیت کلی روی تمام نمونه‌ها جمع می‌شود:</p>
-<p>$$J_j(\mathbf{x}<em>j) = \sum</em>{i=1}^{n} J_j\left(x_j^{(i)}\right)$$</p>
+<p>$$J_j(\mathbf{x}_j) = \sum_{i=1}^{n} J_j\left(x_j^{(i)}\right)$$</p>
 <hr>
 <h2 id="مزایا"><a class="header" href="#مزایا">مزایا</a></h2>
 <p><strong>۱. تعاملات خودکار:</strong> RuleFit به طور خودکار اثرات تعاملی ویژگی‌ها را به مدل‌های خطی اضافه می‌کند — بدون نیاز به تعریف دستی تعاملات.</p>
