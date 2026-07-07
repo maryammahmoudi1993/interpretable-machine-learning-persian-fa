@@ -252,7 +252,7 @@ $\hat{\beta}\_{\ell}$ در این روش، میانگین برآوردشده $y$
 
 $$\begin{pmatrix} A \\\\ A \\\\ B \\\\ C \end{pmatrix} \Rightarrow \begin{pmatrix} 1 & 0 & 0 \\\\ 1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \end{pmatrix}$$
 
-> **توضیح مترجم:** برای مطالعه بیشتر درباره کدگذاری‌های مختلف ویژگی‌های دسته‌ای، می‌توانید به این دو منبع مراجعه کنید: صفحه مروری [heidiseibold.github.io/page7](https://heidiseibold.github.io/page7/) و نوشتهٔ [«Contrast Coding Systems for Categorical Variables» از UCLA](https://stats.oarc.ucla.edu/r/library/r-library-contrast-coding-systems-for-categorical-variables/).
+اگر می‌خواهید کمی عمیق‌تر به کدگذاری‌های مختلف ویژگی‌های دسته‌ای بپردازید، این [صفحه مروری](https://heidiseibold.github.io/page7/) و این [نوشتهٔ وبلاگی](https://stats.oarc.ucla.edu/r/library/r-library-contrast-coding-systems-for-categorical-variables/) را ببینید.
 
 ## مدل‌های خطی تنک (Sparse Linear Models)
 
