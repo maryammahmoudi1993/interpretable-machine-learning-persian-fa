@@ -103,6 +103,29 @@ Keep it simple, concrete, and faithful to the original example's numbers/setup w
 possible (e.g. the ch06 categorical-encoding notes reuse one consistent salary example across
 treatment/effect/dummy coding).
 
+### Visually distinguishing translator additions (purple)
+
+Every translator-added block (`توضیح مترجم` and `برای درک بهتر`) must stay inside a
+Markdown blockquote (`>`) whose first bold line contains one of the exact marker phrases
+`توضیح مترجم`, `برای درک بهتر`, or `مثال مترجم`. Do not invent new marker wording without
+also updating `TRANSLATOR_MARKERS` in `src/theme/custom.js`.
+
+This is not optional styling — it's how readers tell the translator's voice apart from
+Christoph Molnar's original text. The mdbook build colors these blockquotes purple
+automatically:
+
+- `src/theme/custom.js` (`markTranslatorNotes`) scans every rendered blockquote on page
+  load and adds the `translator-note` class to any whose text contains one of the marker
+  phrases above.
+- `src/theme/custom.css` (`.content blockquote.translator-note`) applies the purple
+  background/border/text color to elements with that class.
+
+Because the coloring is applied by content-matching at render time, no per-chapter markup
+is needed — just keep using the standard blockquote + bold-marker pattern above, in both
+`chapters/` and `src/chapters/` copies, and new translator notes will automatically render
+purple. If you change the marker wording or add a new kind of translator block, update both
+`custom.js` and this section together.
+
 ## Markdown / Obsidian conventions
 
 - Standard Markdown headings (`#`, `##`, `###`) mirror the original book's section hierarchy.
