@@ -107,12 +107,23 @@ treatment/effect/dummy coding).
 
 Every translator-added block (`توضیح مترجم` and `برای درک بهتر`) must stay inside a
 Markdown blockquote (`>`) whose first bold line contains one of the exact marker phrases
-`توضیح مترجم`, `برای درک بهتر`, or `مثال مترجم`. Do not invent new marker wording without
-also updating `TRANSLATOR_MARKERS` in `src/theme/custom.js`.
+`توضیح مترجم`, `برای درک بهتر`, or `مثال مترجم`, **and that marker line must be wrapped in
+an inline purple span**:
+
+```
+> <span style="color:#7C3AED">**توضیح مترجم:**</span> متن توضیح اینجا می‌آید...
+```
 
 This is not optional styling — it's how readers tell the translator's voice apart from
-Christoph Molnar's original text. The mdbook build colors these blockquotes purple
-automatically:
+Christoph Molnar's original text, and it must render correctly everywhere the chapter files
+are read: raw in an editor, in Obsidian, on GitHub, and in the built mdbook site. Only the
+mdbook site can run JavaScript/CSS, so the inline `<span style="color:#7C3AED">` on the
+marker itself is the one mechanism that works in all of them — apply it directly in the
+Markdown source, in both `chapters/` and `src/chapters/` copies, every time a translator
+block is added. `#7C3AED` is the fixed color; do not use a different shade between chapters.
+
+The mdbook build additionally colors the *entire* blockquote (not just the marker) purple
+at render time, as a bonus for site readers:
 
 - `src/theme/custom.js` (`markTranslatorNotes`) scans every rendered blockquote on page
   load and adds the `translator-note` class to any whose text contains one of the marker
@@ -120,11 +131,8 @@ automatically:
 - `src/theme/custom.css` (`.content blockquote.translator-note`) applies the purple
   background/border/text color to elements with that class.
 
-Because the coloring is applied by content-matching at render time, no per-chapter markup
-is needed — just keep using the standard blockquote + bold-marker pattern above, in both
-`chapters/` and `src/chapters/` copies, and new translator notes will automatically render
-purple. If you change the marker wording or add a new kind of translator block, update both
-`custom.js` and this section together.
+If you change the marker wording or add a new kind of translator block, update the inline
+span example above, `TRANSLATOR_MARKERS` in `custom.js`, and this section together.
 
 ## Markdown / Obsidian conventions
 
