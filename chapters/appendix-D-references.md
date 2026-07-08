@@ -121,7 +121,7 @@ Grömping, Ulrike. 2020. "Model-Agnostic Effects Plots for Interpreting Machine 
 
 Hamner, Ben, and Michael Frasco. 2018. *Metrics: Evaluation Metrics for Machine Learning*. <https://CRAN.R-project.org/package=Metrics>.
 
-Hastie, Trevor. 2009. "The Elements of Statistical Learning: Data Mining, Inference, and Prediction." Springer.
+Hastie, Trevor. 2009. "The Elements of Statistical Learning: Data Mining, Inference, and Prediction." Springer. <https://hastie.su.domains/ElemStatLearn/>.
 
 Heider, Fritz, and Marianne Simmel. 1944. "An Experimental Study of Apparent Behavior." *The American Journal of Psychology* 57 (2): 243–59. <https://doi.org/10.2307/1416950>.
 
