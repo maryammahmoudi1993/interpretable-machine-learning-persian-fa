@@ -29,6 +29,7 @@
 - **Appendix D (References):** Created full reference list with 160+ entries, added to `SUMMARY.md`, committed on `feat/appendix-D-references`
 - **Image fix:** Committed missing images to `src/chapters/images/` (88 files) — was missing from the `src/` directory that `mdbook` reads from, causing figures to be absent from the build output. Commit `3d0a2c7` on `main`.
 - **Content fix:** restored full Persian translations to all 39 `src/chapters/*.md` files — they contained only stubs (just headings) while `chapters/*.md` had the real content. Copied all markdown files from `chapters/` to `src/chapters/`. Commit `5c054f2` on `main`.
+- **Ch07 faithfulness pass:** fixed condensed intro/linear-vs-logistic section (`ff336d6`), synced stale `chapters/` copy + added `CLAUDE.md` (`d356dcb`), hyperlinked the cheat-sheet and Stackoverflow references (`287824b`), and made the Theory section literal — hyperplane mention, bold `\mathbf{z}` notation, literal tumor-example lead-in, and the previously-dropped "0.5 threshold works in both cases / outliers don't affect the curve" closing paragraph (`9cfe9d5`). All on `main`.
 
 ### In Progress
 - (none)
