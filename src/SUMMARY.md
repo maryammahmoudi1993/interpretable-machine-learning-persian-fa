@@ -14,7 +14,7 @@
 - [GLM، GAM و بیشتر](chapters/08-glm-gam.md)
 - [درخت تصمیم](chapters/09-decision-tree.md)
 - [قوانین تصمیم](chapters/10-decision-rules.md)
-- [RuleFit](chapters/11-rulefit.md)
+- [برازش قانون](chapters/11-rulefit.md)
 - [نمودارهای Ceteris Paribus](chapters/12-ceteris-paribus.md)
 - [ICE](chapters/13-ice.md)
 - [LIME](chapters/14-lime.md)
