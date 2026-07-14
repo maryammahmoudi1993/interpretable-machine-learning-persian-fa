@@ -60,7 +60,7 @@
 - [فصل ۸ — GLM، GAM و بیشتر](./08-glm-gam.md)
 - [فصل ۹ — درخت تصمیم](./09-decision-tree.md)
 - [فصل ۱۰ — قوانین تصمیم](./10-decision-rules.md)
-- [فصل ۱۱ — RuleFit](./11-rulefit.md)
+- [فصل ۱۱ — برازش قانون](./11-rulefit.md)
 
 ### روش‌های محلی مستقل از مدل
 - [فصل ۱۲ — نمودارهای Ceteris Paribus](./12-ceteris-paribus.md)
