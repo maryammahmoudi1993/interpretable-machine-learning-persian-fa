@@ -63,16 +63,24 @@ catch drift (this has happened before — see the ch07 fix in this history).
   When comparing against the upstream `.qmd`/HTML source, every sentence and clause should
   have a corresponding Persian sentence; nothing should be silently dropped (tips/callouts,
   footnote-marked asides, secondary references like "explained on Stackoverflow", etc.).
-- Chapter files start with a standard header block:
+- Chapter files start with a standard header block. The first three blockquote lines
+  (`عنوان اصلی`, `منبع`, `نویسنده`) **must end with two trailing spaces** (a Markdown hard
+  line break) — without it, mdbook/CommonMark merges the whole blockquote into a single
+  run-on paragraph instead of four separate lines. The last line (`مترجم`) doesn't need the
+  trailing spaces since a blank line follows it. This was missed in `001-about-book.md` and
+  `10-decision-rules.md` in one pass and had to be fixed retroactively — check for it
+  whenever adding or editing a header block (trailing spaces are invisible in most editors,
+  so `grep -n '  $'` or `cat -A` on lines 3-5 is the reliable way to verify):
   ```
   # فصل N: عنوان فارسی
 
-  > **عنوان اصلی:** English Title
-  > **منبع:** [source URL](source URL)
-  > **نویسنده:** Christoph Molnar
+  > **عنوان اصلی:** English Title··
+  > **منبع:** [source URL](source URL)··
+  > **نویسنده:** Christoph Molnar··
   > **مترجم:** مریم محمودی
   ---
   ```
+  (`··` above denotes the two trailing spaces — do not type literal `··`.)
 - Figure captions are translated in full and numbered per chapter (`شکل N.M`); the image
   itself keeps its original source URL (local copies live in `chapters/images/` +
   `src/chapters/images/` when downloaded rather than hotlinked).
