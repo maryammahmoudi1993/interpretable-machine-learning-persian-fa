@@ -1,8 +1,8 @@
 # درباره کتاب
 
-> **عنوان اصلی:** About the Book
-> **منبع:** [https://christophm.github.io/interpretable-ml-book/](https://christophm.github.io/interpretable-ml-book/)
-> **نویسنده:** Christoph Molnar — کریستوف مولنار
+> **عنوان اصلی:** About the Book  
+> **منبع:** [https://christophm.github.io/interpretable-ml-book/](https://christophm.github.io/interpretable-ml-book/)  
+> **نویسنده:** Christoph Molnar — کریستوف مولنار  
 > **مترجم:** مریم محمودی — Maryam Mahmoudi
 
 ---
