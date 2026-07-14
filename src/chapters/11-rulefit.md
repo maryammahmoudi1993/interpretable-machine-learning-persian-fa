@@ -1,8 +1,8 @@
 # فصل ۱۱: برازش قانون
 
-> **عنوان اصلی:** RuleFit
-> **منبع:** [https://christophm.github.io/interpretable-ml-book/rulefit.html](https://christophm.github.io/interpretable-ml-book/rulefit.html)
-> **نویسنده:** Christoph Molnar
+> **عنوان اصلی:** RuleFit  
+> **منبع:** [https://christophm.github.io/interpretable-ml-book/rulefit.html](https://christophm.github.io/interpretable-ml-book/rulefit.html)  
+> **نویسنده:** Christoph Molnar  
 > **مترجم:** مریم محمودی
 
 ---
