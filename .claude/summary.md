@@ -94,3 +94,10 @@
 - Added the two original force-plot images (`shap-explain-1/2.jpg`, replacing the combined `fig-force-plots-1.png`, now unreferenced); all 8 figures have in-image label notes; coverage in `.claude/ch18-shap-coverage.md`.
 - Translator notes flag source mismatches: Fig 18.3 baseline 0.47 vs ~0.51 in image and text vs bar sizes; P(female) vs P(Adelie) target; Fig 18.7 caption (bill length) vs image (body mass coloured by bill depth).
 - Gotcha: `\{`/`\}` in math get eaten by mdBook's markdown; use `\lbrace `/`\rbrace ` instead.
+
+## Ch19 (Partial Dependence Plot) full re-translation — branch `translation/chapter-19-pdp`
+- Replaced the condensed chapter with a sentence-level translation of `pdp.qmd`: intro, definition/estimation (both formulas), warning callout, categorical features, bike and penguin examples (5 figures with in-image label notes), tip callout, PDP-based feature importance (both formulas, range rule), Strengths, Limitations (incl. regional effect plots), Software.
+- Translator notes: intro terms, units, "surprise, surprise", range rule, undefined "j-th feature", Gkolemis 2024 citation absent from Appendix D (not invented). Worked examples: PD computation, categorical PD, 2D PDP, importance, causal-for-model, heterogeneity/regional PDP.
+- Coverage in `.claude/ch19-pdp-coverage.md`. Verified with `mdbook build -d <tmp>` (mdbook 0.4.40 installed via cargo); MathJax checked offline with a local mathjax 2.7.9 copy because the CDN is blocked in the sandbox.
+- No push and no merge done; left to the maintainer.
+
