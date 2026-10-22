@@ -219,6 +219,10 @@ $$I(X\_S) = \frac{\max\_k(\hat{f}\_S(\mathbf{x}^{(k)}\_S)) - \min\_k(\hat{f}\_S(
 
 ## نرم‌افزار و جایگزین‌ها
 
-چندین بستهٔ R برای پیاده‌سازی PDPها وجود دارد. در مثال‌های این فصل از بستهٔ `iml` استفاده شده، اما بسته‌های `pdp` و `DALEX` نیز در دسترس هستند. در Python، نمودار وابستگی جزئی در کتابخانهٔ `scikit-learn` تعبیه شده و همچنین در `PDPBox` و `effector` نیز پیاده‌سازی شده است. کتابخانهٔ Python Interpretable Machine Learning یا `PiML` نیز گزینهٔ دیگری است. بستهٔ `effector` همچنین نمودارهای PDP منطقه‌ای را پشتیبانی می‌کند.
+چند بستهٔ R وجود دارد که PDPها را پیاده‌سازی می‌کنند.
+من برای مثال‌ها از بستهٔ `iml` استفاده کردم، اما `pdp` و `DALEX` هم هستند.
+در Python، نمودارهای وابستگی جزئی در `scikit-learn`، `PDPBox` و [`effector`](https://github.com/givasile/effector) تعبیه شده‌اند.
+یا می‌توانید از [کتابخانهٔ Python Interpretable Machine Learning (PiML)](https://selfexplainml.github.io/PiML-Toolbox/_build/html/index.html) استفاده کنید.
+[`effector`](https://github.com/givasile/effector) نمودارهای PDP منطقه‌ای را نیز پیاده‌سازی می‌کند.
 
-جایگزین‌های PDP که در این کتاب معرفی شده‌اند عبارتند از: نمودارهای ALE و منحنی‌های ICE.
+جایگزین‌های PDP که در این کتاب ارائه شده‌اند [نمودارهای ALE](20-ale.md) و [منحنی‌های ICE](13-ice.md) هستند.
