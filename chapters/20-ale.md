@@ -417,6 +417,8 @@ PDP به $n$ برابر تعداد نقاط شبکه برآورد نیاز دا�
 
 ## نرم‌افزار و جایگزین‌ها
 
-آیا گفتم که نمودارهای وابستگی جزئی و منحنی‌های ICE جایگزین هستند؟ =)
+آیا گفتم که [نمودارهای وابستگی جزئی](19-pdp.md) و [منحنی‌های انتظار شرطی فردی](13-ice.md) جایگزین‌اند؟
+=)
 
-نمودارهای ALE در R در بسته `ALEPlot` — نوشته خود مبتکر روش — و همچنین در بسته `iml` پیاده‌سازی شده‌اند. برای Python نیز چند پیاده‌سازی وجود دارد: `effector`، `ALEPython`، `Alibi` و `PiML`.
+نمودارهای ALE در R در [بستهٔ R با نام ALEPlot](https://cran.r-project.org/web/packages/ALEPlot/index.html) به‌دست خود مبتکر روش، و یک بار هم در [بستهٔ iml](https://cran.r-project.org/web/packages/iml/index.html) پیاده‌سازی شده‌اند.
+ALE چند پیاده‌سازی در Python هم دارد: [`effector`](https://github.com/givasile/effector)، [ALEPython](https://github.com/blent-ai/ALEPython)، [Alibi](https://docs.seldon.io/projects/alibi/en/stable/index.html) و [PiML](https://selfexplainml.github.io/PiML-Toolbox/_build/html/index.html).
