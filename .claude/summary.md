@@ -101,3 +101,10 @@
 - Coverage in `.claude/ch19-pdp-coverage.md`. Verified with `mdbook build -d <tmp>` (mdbook 0.4.40 installed via cargo); MathJax checked offline with a local mathjax 2.7.9 copy because the CDN is blocked in the sandbox.
 - No push and no merge done; left to the maintainer.
 
+## Ch20 (ALE) full re-translation — branch `translation/chapter-20-ale`
+- Replaced the condensed chapter with a sentence-level translation of `ale.qmd`: intro, motivation (3 figures), theory (PDP/M/ALE formulas, three differences), estimation (1D formulas, 2D, categorical + tip), ALE vs PDP (2 figures + tip), bike and penguin examples (3 figures), Strengths, Limitations, Software.
+- Figures renumbered 20.1-20.9 to follow the source (the 2D-ALE figure had no number before); all 9 figures have in-image label notes; coverage in `.claude/ch20-ale-coverage.md`.
+- Translator notes flag source slips (mathbbP in Fig 20.2 image, x_S/z_S subscript, "product of main effects", Fig 20.8 text vs image, typo in tip callout). Worked examples added after the main concepts.
+- Commits carry no AI attribution trailers and are authored as the maintainer (local git identity set), per the maintainer's request.
+- Not merged and not pushed; left to the maintainer.
+
