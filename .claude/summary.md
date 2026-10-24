@@ -108,3 +108,9 @@
 - Commits carry no AI attribution trailers and are authored as the maintainer (local git identity set), per the maintainer's request.
 - Not merged and not pushed; left to the maintainer.
 
+## Ch21 (Feature Interaction) full re-translation — branch `translation/chapter-21-interaction`
+- Replaced the condensed chapter (it had a stray Chinese token and a link to a figure file that never existed) with a sentence-level translation of `interaction.qmd`: intro, house-price tables 21.1/21.2 with decomposition, Friedman's H-statistic (all formulas, cost, test), penguin examples, Strengths, Limitations (incl. H* formula), Software and alternatives.
+- BLOCKED item: Fig 21.1 image is not in the repo and the website was unreachable from the sandbox; it is hotlinked at the conventional Quarto path (unverified) and its in-image labels are not translated. Next step: download it to `chapters/images/` (+ `src/chapters/images/`) and add a label note.
+- Translator notes flag the source's inconsistent "0 / 1" sentence; worked examples added. Coverage in `.claude/ch21-interaction-coverage.md`.
+- Per the maintainer's standing instruction, completed chapters are merged to `main` and pushed without asking.
+
