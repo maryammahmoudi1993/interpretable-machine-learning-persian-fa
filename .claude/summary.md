@@ -114,3 +114,9 @@
 - Translator notes flag the source's inconsistent "0 / 1" sentence; worked examples added. Coverage in `.claude/ch21-interaction-coverage.md`.
 - Per the maintainer's standing instruction, completed chapters are merged to `main` and pushed without asking.
 
+## Ch22 (Functional Decomposition) full re-translation — branch `translation/chapter-22-decomposition`
+- Replaced the condensed chapter (which had altered the opening example function) with a sentence-level translation of `decomposition.qmd`: intro and example 2 + e^x1 - x2 + x1*x2 (Fig 22.1, 22.2), decomposing a function, functional ANOVA (formulas, three axioms), generalized functional ANOVA, ALE as decomposition (pseudo-orthogonality, PDP), tree ensembles, statistical regression models, Strengths, Limitations.
+- Both figures have in-image label notes; coverage in `.claude/ch22-decomposition-coverage.md`. Source slips flagged in translator notes (|S|>=1, 90/720 counts, caption vs image layout, S={emptyset}).
+- Open item: Hooker (2007) is cited in the source but not in Appendix D; not invented, noted for the maintainer.
+- Merged to `main` and pushed per the maintainer's standing instruction.
+
