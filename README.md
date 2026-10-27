@@ -1,9 +1,30 @@
-# یادگیری ماشین قابل تفسیر — ترجمه فارسی
+<div align="center">
+  <img src="assets/readme-hero.svg" width="100%" alt="یادگیری ماشین قابل تفسیر — ترجمه فارسی کتاب Christoph Molnar">
 
-[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
-[![Read online](https://img.shields.io/badge/Read-online-blue)](https://maryammahmoudi1993.github.io/interpretable-machine-learning-persian-fa/)
+  <h1 dir="rtl">یادگیری ماشین قابل تفسیر — ترجمهٔ جامع فارسی</h1>
+  <h3>Interpretable Machine Learning: A Guide for Making Black Box Models Explainable</h3>
+  <p dir="rtl">اثر: Christoph Molnar &nbsp;|&nbsp; مترجم: مریم محمودی</p>
 
-**Interpretable Machine Learning — Persian (Farsi) Translation**
+  <p>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg" alt="License: CC BY-NC-SA 4.0"></a>
+    <img src="https://img.shields.io/badge/Edition-3rd%20(latest)-blue" alt="Third edition">
+    <img src="https://img.shields.io/badge/Status-100%25%20complete-brightgreen" alt="Translation complete">
+    <img src="https://img.shields.io/badge/Built%20with-mdBook-orange" alt="Built with mdBook">
+    <a href="https://github.com/maryammahmoudi1993/interpretable-machine-learning-persian-fa"><img src="https://img.shields.io/github/stars/maryammahmoudi1993/interpretable-machine-learning-persian-fa?style=flat" alt="GitHub stars"></a>
+  </p>
+
+  <p dir="rtl">
+    <a href="https://maryammahmoudi1993.github.io/interpretable-machine-learning-persian-fa/">📖 مطالعهٔ نسخهٔ آنلاین</a>
+    &nbsp;·&nbsp;
+    <a href="https://christophm.github.io/interpretable-ml-book/">🌐 نسخهٔ انگلیسی کتاب</a>
+    &nbsp;·&nbsp;
+    <a href="https://github.com/maryammahmoudi1993/interpretable-machine-learning-persian-fa">⭐ ثبت ستاره (Star)</a>
+    &nbsp;·&nbsp;
+    <a href="https://github.com/maryammahmoudi1993/interpretable-machine-learning-persian-fa/issues">🐛 گزارش خطا و پیشنهاد</a>
+  </p>
+</div>
+
+---
 
 **English:** This repository hosts the Persian (Farsi) translation of
 *Interpretable Machine Learning* (3rd edition) by Christoph Molnar. The book
