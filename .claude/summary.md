@@ -94,3 +94,35 @@
 - Added the two original force-plot images (`shap-explain-1/2.jpg`, replacing the combined `fig-force-plots-1.png`, now unreferenced); all 8 figures have in-image label notes; coverage in `.claude/ch18-shap-coverage.md`.
 - Translator notes flag source mismatches: Fig 18.3 baseline 0.47 vs ~0.51 in image and text vs bar sizes; P(female) vs P(Adelie) target; Fig 18.7 caption (bill length) vs image (body mass coloured by bill depth).
 - Gotcha: `\{`/`\}` in math get eaten by mdBook's markdown; use `\lbrace `/`\rbrace ` instead.
+
+## Ch19 (Partial Dependence Plot) full re-translation — branch `translation/chapter-19-pdp`
+- Replaced the condensed chapter with a sentence-level translation of `pdp.qmd`: intro, definition/estimation (both formulas), warning callout, categorical features, bike and penguin examples (5 figures with in-image label notes), tip callout, PDP-based feature importance (both formulas, range rule), Strengths, Limitations (incl. regional effect plots), Software.
+- Translator notes: intro terms, units, "surprise, surprise", range rule, undefined "j-th feature", Gkolemis 2024 citation absent from Appendix D (not invented). Worked examples: PD computation, categorical PD, 2D PDP, importance, causal-for-model, heterogeneity/regional PDP.
+- Coverage in `.claude/ch19-pdp-coverage.md`. Verified with `mdbook build -d <tmp>` (mdbook 0.4.40 installed via cargo); MathJax checked offline with a local mathjax 2.7.9 copy because the CDN is blocked in the sandbox.
+- No push and no merge done; left to the maintainer.
+
+## Ch20 (ALE) full re-translation — branch `translation/chapter-20-ale`
+- Replaced the condensed chapter with a sentence-level translation of `ale.qmd`: intro, motivation (3 figures), theory (PDP/M/ALE formulas, three differences), estimation (1D formulas, 2D, categorical + tip), ALE vs PDP (2 figures + tip), bike and penguin examples (3 figures), Strengths, Limitations, Software.
+- Figures renumbered 20.1-20.9 to follow the source (the 2D-ALE figure had no number before); all 9 figures have in-image label notes; coverage in `.claude/ch20-ale-coverage.md`.
+- Translator notes flag source slips (mathbbP in Fig 20.2 image, x_S/z_S subscript, "product of main effects", Fig 20.8 text vs image, typo in tip callout). Worked examples added after the main concepts.
+- Commits carry no AI attribution trailers and are authored as the maintainer (local git identity set), per the maintainer's request.
+- Not merged and not pushed; left to the maintainer.
+
+## Ch21 (Feature Interaction) full re-translation — branch `translation/chapter-21-interaction`
+- Replaced the condensed chapter (it had a stray Chinese token and a link to a figure file that never existed) with a sentence-level translation of `interaction.qmd`: intro, house-price tables 21.1/21.2 with decomposition, Friedman's H-statistic (all formulas, cost, test), penguin examples, Strengths, Limitations (incl. H* formula), Software and alternatives.
+- BLOCKED item: Fig 21.1 image is not in the repo and the website was unreachable from the sandbox; it is hotlinked at the conventional Quarto path (unverified) and its in-image labels are not translated. Next step: download it to `chapters/images/` (+ `src/chapters/images/`) and add a label note.
+- Translator notes flag the source's inconsistent "0 / 1" sentence; worked examples added. Coverage in `.claude/ch21-interaction-coverage.md`.
+- Per the maintainer's standing instruction, completed chapters are merged to `main` and pushed without asking.
+
+## Ch22 (Functional Decomposition) full re-translation — branch `translation/chapter-22-decomposition`
+- Replaced the condensed chapter (which had altered the opening example function) with a sentence-level translation of `decomposition.qmd`: intro and example 2 + e^x1 - x2 + x1*x2 (Fig 22.1, 22.2), decomposing a function, functional ANOVA (formulas, three axioms), generalized functional ANOVA, ALE as decomposition (pseudo-orthogonality, PDP), tree ensembles, statistical regression models, Strengths, Limitations.
+- Both figures have in-image label notes; coverage in `.claude/ch22-decomposition-coverage.md`. Source slips flagged in translator notes (|S|>=1, 90/720 counts, caption vs image layout, S={emptyset}).
+- Open item: Hooker (2007) is cited in the source but not in Appendix D; not invented, noted for the maintainer.
+- Merged to `main` and pushed per the maintainer's standing instruction.
+
+## Ch23 (Permutation Feature Importance) full re-translation — branch `translation/chapter-23-feature-importance`
+- Replaced the condensed chapter with a sentence-level translation of `feature-importance.qmd`: intro, theory and algorithm (+ invert-metrics tip, unseen-data caution), bike and penguin examples (Fig 23.1, 23.2), conditional importance (+ warning), group-wise PFI (Fig 23.3, 23.4), Strengths, Limitations (incl. rain/temperature splitting example), Software and alternatives.
+- All 4 figures have in-image label notes; coverage in `.claude/ch23-feature-importance-coverage.md`. Flags: Debeer and Strobl 2020 missing from Appendix D, Fisher 2018/2019 year, Fig 23.4 caption vs figure.
+- Also scheduled (maintainer request, Taiwan time 08:00-11:00 random per day): chapters 24-37 and appendices A-D, one per day from 2026-10-28 to 2026-11-14, each a fresh session that translates, merges and pushes.
+- Merged to `main` and pushed per the maintainer's standing instruction.
+
