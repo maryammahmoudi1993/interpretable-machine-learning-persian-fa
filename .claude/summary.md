@@ -120,3 +120,9 @@
 - Open item: Hooker (2007) is cited in the source but not in Appendix D; not invented, noted for the maintainer.
 - Merged to `main` and pushed per the maintainer's standing instruction.
 
+## Ch23 (Permutation Feature Importance) full re-translation — branch `translation/chapter-23-feature-importance`
+- Replaced the condensed chapter with a sentence-level translation of `feature-importance.qmd`: intro, theory and algorithm (+ invert-metrics tip, unseen-data caution), bike and penguin examples (Fig 23.1, 23.2), conditional importance (+ warning), group-wise PFI (Fig 23.3, 23.4), Strengths, Limitations (incl. rain/temperature splitting example), Software and alternatives.
+- All 4 figures have in-image label notes; coverage in `.claude/ch23-feature-importance-coverage.md`. Flags: Debeer and Strobl 2020 missing from Appendix D, Fisher 2018/2019 year, Fig 23.4 caption vs figure.
+- Also scheduled (maintainer request, Taiwan time 08:00-11:00 random per day): chapters 24-37 and appendices A-D, one per day from 2026-10-28 to 2026-11-14, each a fresh session that translates, merges and pushes.
+- Merged to `main` and pushed per the maintainer's standing instruction.
+
