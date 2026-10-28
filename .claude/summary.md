@@ -126,3 +126,8 @@
 - Also scheduled (maintainer request, Taiwan time 08:00-11:00 random per day): chapters 24-37 and appendices A-D, one per day from 2026-10-28 to 2026-11-14, each a fresh session that translates, merges and pushes.
 - Merged to `main` and pushed per the maintainer's standing instruction.
 
+## Ch24 (LOFO Importance) full re-translation — branch `translation/chapter-24-lofo`
+- Replaced the condensed chapter with a sentence-level translation of `lofo.qmd`: intro + algorithm (with footnote), bike examples incl. duplicated-temperature experiment (Fig 24.1, 24.2), penguin example (Fig 24.3), LOFO versus PFI, Strengths, Limitations, Software and alternatives; all 3 footnotes.
+- Source slips flagged in translator notes: swapped captions of Fig 24.1/24.2, species/flipper_length statement vs Fig 24.3, LOCO/LOFO wording. Coverage in `.claude/ch24-lofo-coverage.md`.
+- Merged to `main` and pushed per the maintainer's standing instruction.
+
