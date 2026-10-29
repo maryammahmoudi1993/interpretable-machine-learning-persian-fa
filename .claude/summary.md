@@ -131,3 +131,8 @@
 - Source slips flagged in translator notes: swapped captions of Fig 24.1/24.2, species/flipper_length statement vs Fig 24.3, LOCO/LOFO wording. Coverage in `.claude/ch24-lofo-coverage.md`.
 - Merged to `main` and pushed per the maintainer's standing instruction.
 
+## Ch25 (Surrogate Models) full re-translation — branch `translation/chapter-25-surrogate`
+- Replaced the condensed chapter with a sentence-level translation of `global.qmd`: intro, theory (formulas, seven steps, R-squared, local surrogate), bike and penguin examples (Fig 25.1, 25.2), Strengths, Limitations, Software. Original title in header corrected to "Surrogate Models".
+- No R-squared numbers in the source text (inline R); flagged in a translator note. Coverage in `.claude/ch25-surrogate-coverage.md`.
+- Merged to `main` and pushed per the maintainer's standing instruction.
+
