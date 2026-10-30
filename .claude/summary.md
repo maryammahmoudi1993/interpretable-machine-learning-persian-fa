@@ -136,3 +136,8 @@
 - No R-squared numbers in the source text (inline R); flagged in a translator note. Coverage in `.claude/ch25-surrogate-coverage.md`.
 - Merged to `main` and pushed per the maintainer's standing instruction.
 
+
+## Ch26 (Prototypes and Criticisms)
+- Progress: full re-translation (theory, MMD², kernel, greedy algorithm, witness function, Figs 26.1-26.4 with in-image notes, examples, strengths, limitations, software). Both chapter copies identical.
+- Key decisions: source slips flagged in translator notes, text unchanged.
+- Next: ch27 (cnn-features).
