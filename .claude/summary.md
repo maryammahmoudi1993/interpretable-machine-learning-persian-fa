@@ -146,3 +146,9 @@
 - Progress: full re-translation of cnn-features.qmd (feature visualization, network dissection, experiments, strengths, limitations, software); added missing Fig 27.2 image (units.jpg); in-image label notes for all 7 figures; translator notes and worked examples (disentanglement analogy, IoU example).
 - Key decisions: source slips flagged in notes; internal links to ch28 (attribution) and ch30 (adversarial).
 - Next: ch28 (saliency-maps).
+
+## Ch28 (Saliency Maps)
+- Progress: full re-translation of pixel-attribution.qmd (Vanilla Gradient, DeconvNet, Grad-CAM, Guided Grad-CAM, SmoothGrad, examples, strengths, limitations, software); label notes for Figs 28.1-28.3; worked examples; callouts.
+- Key decisions: source slips flagged in notes; links to ch14/17/18/27; all references already in Appendix D.
+- Scheduled runs (fresh sessions) failed to push (403, repo not authorized); remaining chapters rebound to the interactive session.
+- Next: ch29 (detecting-concepts).
