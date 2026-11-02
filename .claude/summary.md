@@ -152,3 +152,8 @@
 - Key decisions: source slips flagged in notes; links to ch14/17/18/27; all references already in Appendix D.
 - Scheduled runs (fresh sessions) failed to push (403, repo not authorized); remaining chapters rebound to the interactive session.
 - Next: ch29 (detecting-concepts).
+
+## Ch29 (Detecting Concepts)
+- Progress: full re-translation (TCAV, CAV, significance test, example Fig 29.1 with label note, strengths, limitations, ACE/CBM/CW, software); callouts; worked examples.
+- Done by the scheduled run bound to the interactive session (2026-11-02).
+- Next: ch30 (adversarial).
