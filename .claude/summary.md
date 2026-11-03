@@ -157,3 +157,7 @@
 - Progress: full re-translation (TCAV, CAV, significance test, example Fig 29.1 with label note, strengths, limitations, ACE/CBM/CW, software); callouts; worked examples.
 - Done by the scheduled run bound to the interactive session (2026-11-02).
 - Next: ch30 (adversarial).
+
+## Ch30 (Adversarial Examples)
+- Progress: full re-translation (Szegedy, FGSM, 1-pixel, adversarial patch, EOT turtle, black-box attack, cybersecurity section); Figs 30.1-30.4 with label notes; worked examples.
+- Next: ch31 (influential).
