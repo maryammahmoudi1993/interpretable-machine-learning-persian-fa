@@ -161,3 +161,7 @@
 ## Ch30 (Adversarial Examples)
 - Progress: full re-translation (Szegedy, FGSM, 1-pixel, adversarial patch, EOT turtle, black-box attack, cybersecurity section); Figs 30.1-30.4 with label notes; worked examples.
 - Next: ch31 (influential).
+
+## Ch31 (Influential Instances)
+- Progress: full re-translation (deletion diagnostics, influence functions math, applications, strengths, limitations, software); label notes for Figs 31.1-31.6; worked examples; source slips flagged.
+- Next: ch32 (evaluation).
