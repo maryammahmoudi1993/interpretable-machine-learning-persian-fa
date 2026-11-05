@@ -165,3 +165,7 @@
 ## Ch31 (Influential Instances)
 - Progress: full re-translation (deletion diagnostics, influence functions math, applications, strengths, limitations, software); label notes for Figs 31.1-31.6; worked examples; source slips flagged.
 - Next: ch32 (evaluation).
+
+## Ch32 (Evaluation of Interpretability Methods)
+- Progress: full re-translation (3 evaluation levels, 4 method properties, 9 explanation properties); worked examples; source slips flagged. No figures.
+- Next: ch33 (storytime).
