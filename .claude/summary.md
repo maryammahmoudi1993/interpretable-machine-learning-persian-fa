@@ -169,3 +169,7 @@
 ## Ch32 (Evaluation of Interpretability Methods)
 - Progress: full re-translation (3 evaluation levels, 4 method properties, 9 explanation properties); worked examples; source slips flagged. No figures.
 - Next: ch33 (storytime).
+
+## Ch33 (Story Time)
+- Progress: full re-translation of the three short stories and the poem; label notes for the three images; explanatory translator notes.
+- Next: ch34 (future).
