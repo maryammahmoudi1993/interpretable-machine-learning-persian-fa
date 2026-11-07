@@ -173,3 +173,7 @@
 ## Ch33 (Story Time)
 - Progress: full re-translation of the three short stories and the poem; label notes for the three images; explanatory translator notes.
 - Next: ch34 (future).
+
+## Ch34 (The Future of Interpretability)
+- Progress: full re-translation (three premises, future of ML, future of interpretability, predictions); translator notes and AutoML worked example.
+- Next: ch35 (translations, new chapter; add to SUMMARY.md).
