@@ -177,3 +177,7 @@
 ## Ch34 (The Future of Interpretability)
 - Progress: full re-translation (three premises, future of ML, future of interpretability, predictions); translator notes and AutoML worked example.
 - Next: ch35 (translations, new chapter; add to SUMMARY.md).
+
+## Ch35 (Translations) — new chapter
+- Progress: translated the list of translations (14 entries, 9 languages); added to src/SUMMARY.md and to the cover chapter list (both copies of 00-cover.md).
+- Next: ch36 (citing this book, new chapter).
