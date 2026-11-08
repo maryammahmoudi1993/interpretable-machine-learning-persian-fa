@@ -38,6 +38,7 @@
 - [ارزیابی روش‌های تفسیر](chapters/32-evaluation.md)
 - [داستان‌ها](chapters/33-storytime.md)
 - [آینده تفسیرپذیری](chapters/34-future.md)
+- [ترجمه‌ها](chapters/35-translations.md)
 
 ---
 
