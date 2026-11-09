@@ -181,3 +181,7 @@
 ## Ch35 (Translations) — new chapter
 - Progress: translated the list of translations (14 entries, 9 languages); added to src/SUMMARY.md and to the cover chapter list (both copies of 00-cover.md).
 - Next: ch36 (citing this book, new chapter).
+
+## Ch36 (Citing this Book) — new chapter
+- Progress: translated; citation and bibtex blocks kept verbatim; added to src/SUMMARY.md and cover list.
+- Next: ch37 (acknowledgments, new chapter).
