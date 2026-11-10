@@ -40,6 +40,7 @@
 - [آینده تفسیرپذیری](chapters/34-future.md)
 - [ترجمه‌ها](chapters/35-translations.md)
 - [ارجاع به این کتاب](chapters/36-citing.md)
+- [قدردانی](chapters/37-acknowledgments.md)
 
 ---
 
