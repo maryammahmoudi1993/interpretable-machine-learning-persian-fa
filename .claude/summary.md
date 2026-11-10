@@ -185,3 +185,7 @@
 ## Ch36 (Citing this Book) — new chapter
 - Progress: translated; citation and bibtex blocks kept verbatim; added to src/SUMMARY.md and cover list.
 - Next: ch37 (acknowledgments, new chapter).
+
+## Ch37 (Acknowledgments) — new chapter
+- Progress: translated; epub-only Impressum omitted with a translator note; added to src/SUMMARY.md and cover list.
+- All chapters 19-37 are now translated and merged; remaining: appendices A-D (A on 2026-11-11, B 11-12, C 11-13, D 11-14).
