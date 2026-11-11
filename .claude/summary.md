@@ -189,3 +189,7 @@
 ## Ch37 (Acknowledgments) — new chapter
 - Progress: translated; epub-only Impressum omitted with a translator note; added to src/SUMMARY.md and cover list.
 - All chapters 19-37 are now translated and merged; remaining: appendices A-D (A on 2026-11-11, B 11-12, C 11-13, D 11-14).
+
+## Appendix A (Machine Learning Terms)
+- Progress: full re-translation; label notes for 3 images; one running worked example; Merriam-Webster link to Appendix D.
+- Next: appendix B (math terms).
