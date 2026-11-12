@@ -193,3 +193,7 @@
 ## Appendix A (Machine Learning Terms)
 - Progress: full re-translation; label notes for 3 images; one running worked example; Merriam-Webster link to Appendix D.
 - Next: appendix B (math terms).
+
+## Appendix B (Math Terms)
+- Progress: re-checked all 12 rows against the source, removed two non-source additions, added notation note and a worked house-price example (3 instances, 2 features).
+- Next: appendix C (R packages).
