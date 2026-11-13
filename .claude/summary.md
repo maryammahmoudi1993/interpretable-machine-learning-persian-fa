@@ -197,3 +197,8 @@
 ## Appendix B (Math Terms)
 - Progress: re-checked all 12 rows against the source, removed two non-source additions, added notation note and a worked house-price example (3 instances, 2 features).
 - Next: appendix C (R packages).
+
+## Appendix C (R packages used)
+- Progress: the raw source only holds an R chunk that generates the table at build time; table and reference list were kept, provenance explained in a translator note, one worked row reading and glitch note added.
+- Open for the Appendix D task: package references listed here are not in Appendix D.
+- Next: appendix D (references).
