@@ -7,6 +7,10 @@
 
 ---
 
+> <span style="color:#7C3AED">**توضیح مترجم:**</span> در متن منبع این پیوست (`r-packages.qmd`) فقط یک بلوک کد R وجود دارد که با تابع `cite_packages` هنگام ساخت کتاب فهرست بسته‌های R استفاده‌شده و مراجع آن‌ها را تولید می‌کند؛ خود فایل منبع متنی یا جدول ثابت ندارد. جدول و فهرست مراجع زیر همان خروجی تولیدشدهٔ کتاب است و نسخه‌ها مربوط به زمان انتشار کتاب‌اند، نه لزوماً آخرین نسخه‌های امروز. در ستون «مرجع» نام نویسندگان و سال لاتین مانند منبع آمده است («and» یعنی «و»، «et al.» یعنی «و همکاران»). پیوندهای ستون مرجع به فهرست مراجع صفحهٔ اصلی کتاب اشاره می‌کنند و فهرست کامل همین مراجع در ادامهٔ همین پیوست آمده است.
+
+> <span style="color:#7C3AED">**برای درک بهتر (توضیح مترجم):**</span> یک ردیف را اینگونه بخوانید: ردیف `iml | 0.11.3 | Molnar, Bischl, and Casalicchio (2018)` یعنی کتاب از بستهٔ R با نام `iml` و نسخهٔ ۰٫۱۱٫۳ استفاده کرده و مرجع آن مقالهٔ Molnar و Bischl و Casalicchio در سال ۲۰۱۸ است. اگر برخی ردیف‌ها چند مرجع دارند (مثل `glmnet`)، یعنی نویسندگان بسته خواسته‌اند برای استفاده از آن چند اثر ارجاع داده شود.
+
 | بسته | نسخه | مرجع |
 |---|---|---|
 | base | 4.4.2 | R Core Team ([2024a](https://christophm.github.io/interpretable-ml-book/references.html#ref-base)) |
@@ -147,3 +151,5 @@ Yang, Hongyu, Cynthia Rudin, and Margo Seltzer. 2016. *sbrl: Scalable Bayesian R
 Zeileis, Achim, Torsten Hothorn, and Kurt Hornik. 2008. "Model-Based Recursive Partitioning." *Journal of Computational and Graphical Statistics* 17 (2): 492–514. <https://doi.org/10.1198/106186008X319331>.
 
 Zhu, Hao. 2024. *kableExtra: Construct Complex Table with "kable" and Pipe Syntax*. <https://CRAN.R-project.org/package=kableExtra>.
+
+> <span style="color:#7C3AED">**توضیح مترجم:**</span> چند ناهمگونی در فهرست مراجع خروجی منبع وجود دارد که بدون تغییر ماندند: مرجع «Kuhn, and Max. 2008» (در واقع Kuhn، Max) درست جداسازی نشده، مرجع `R Core Team` دو بار با همان متن (۲۰۲۴a و ۲۰۲۴b) آمده، و ترتیب چند مرجع Wood و نشانه‌گذاری حروف در یک نام (`B S"afken`) ناهمگون است. این‌ها نتیجهٔ تولید خودکار مراجع‌اند، نه ترجمه.
