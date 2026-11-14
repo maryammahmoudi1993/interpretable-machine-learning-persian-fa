@@ -65,6 +65,8 @@ Dandl, Susanne, Christoph Molnar, Martin Binder, and Bernd Bischl. 2020. "Multi-
 
 Deb, K., A. Pratap, S. Agarwal, and T. Meyarivan. 2002. "A Fast and Elitist Multiobjective Genetic Algorithm: NSGA-II." *IEEE Transactions on Evolutionary Computation* 6 (2): 182–97. <https://doi.org/10.1109/4235.996017>.
 
+Debeer, Dries, and Carolin Strobl. 2020. "Conditional Permutation Importance Revisited." *BMC Bioinformatics* 21 (1): 307. <https://doi.org/10.1186/s12859-020-03622-2>.
+
 DeLMA, and Will Cukierski. 2013. "The ICML 2013 Whale Challenge - Right Whale Redux." <https://kaggle.com/competitions/the-icml-2013-whale-challenge-right-whale-redux>.
 
 Deng, Jia, Wei Dong, Richard Socher, Li-Jia Li, Kai Li, and Li Fei-Fei. 2009. "ImageNet: A Large-Scale Hierarchical Image Database." In *2009 IEEE Conference on Computer Vision and Pattern Recognition*, 248–55. <https://doi.org/10.1109/CVPR.2009.5206848>.
