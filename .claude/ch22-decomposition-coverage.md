@@ -49,3 +49,4 @@ Note: the pre-existing Persian chapter was condensed and altered the opening exa
 
 ## Translator additions (all marked, purple style)
 Notes: terminology, three-line formula, |S| >= 1 slip, 90/720 counts, S={emptyset}/four-feature assumption, Hooker 2007 reference, axioms, projections and entanglement, GA2M/MARS/splines, exponential explosion. Worked examples: interaction visible in f, intercept = 2 + sinh(1), 2^p components for p = 3, non-uniqueness (all effect in interaction), recursive ANOVA components, axioms check, hierarchical orthogonality, operator H_S as a filter, tree depth vs interaction order, linear model as decomposition, Shapley split of interaction. Figure label notes for Fig 22.1-22.2.
+- RESOLVED 2026-11-14: Hooker 2007 entry is present in Appendix D (listed as '———. 2007' under Hooker 2004).

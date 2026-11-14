@@ -54,3 +54,4 @@ Note: the pre-existing Persian chapter was a condensed/reworded translation with
 
 ## Translator additions (all marked, purple style)
 Notes: intro terms, bike units/author expectation, "surprise, surprise"/regression-to-mean wording, range rule, "j-th feature", Gkolemis citation. Worked examples: PD computation, categorical PD, 2D PDP, PDP importance, causal-for-model vs. world, heterogeneous effects/regional PDP. Figure label notes for Fig 19.1-19.5.
+- RESOLVED 2026-11-14: the Gkolemis et al. (2024) entry exists in Appendix D (listed as '———. n.d.' under Gkolemis 2023); the citation is now linked.

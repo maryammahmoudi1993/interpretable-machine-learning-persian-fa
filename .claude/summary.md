@@ -202,3 +202,9 @@
 - Progress: the raw source only holds an R chunk that generates the table at build time; table and reference list were kept, provenance explained in a translator note, one worked row reading and glitch note added.
 - Open for the Appendix D task: package references listed here are not in Appendix D.
 - Next: appendix D (references).
+
+## Appendix D (References) — final check
+- Added the one missing cited entry (Debeer & Strobl 2020); linked the Debeer and Gkolemis citations; updated old notes (Hooker 2007 and Gkolemis were already present).
+- .bib entries not cited in fetched chapters (Lipton 2018, Aamodt 1994, Molnar 2022) were not added; four manuscript pages could not be fetched.
+- Structure and render checks passed (see .claude/appendix-d-references-coverage.md).
+- All chapters 1-37 and appendices A-D are translated and merged.

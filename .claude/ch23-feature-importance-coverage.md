@@ -46,3 +46,4 @@ Note: the pre-existing Persian chapter was condensed and had no in-image label n
 
 ## Translator additions (all marked, purple style)
 Notes: terminology (permutation, loss), notation, Fisher year, Debeer missing, knockoffs, Fig 23.1-23.4 label notes (incl. caption mismatch), inline R values. Worked examples: ratio vs difference, n(n-1) cost, unseen-data overfitting, bike error bars, conditional vs marginal importance with correlated temperatures, correlation by species, interactions double-counting, pairwise-correlation caveat, importance splitting, variance-based vs loss-based importance.
+- RESOLVED 2026-11-14: Debeer and Strobl (2020) was added to Appendix D and the citation in chapters/23-feature-importance.md is now linked.
